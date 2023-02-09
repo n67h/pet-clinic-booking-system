@@ -67,6 +67,10 @@ body {
     border: none;
 }
 
+.services:hover {
+    border: 2px solid black;
+}
+
 .card-body {
     font-size: 1.4em;
 }
