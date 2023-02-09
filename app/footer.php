@@ -15,16 +15,16 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Services</h5>
                     <p>
-                        <a href="#" class="text-white text-decoration-none link-info">test</a>
+                        <a href="index.php#services" class="text-white text-decoration-none link-info">Vaccination</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white text-decoration-none link-info">test</a>
+                        <a href="index.php#services" class="text-white text-decoration-none link-info">Medication</a>
                     </p>
-                    <!--
+                    
                     <p>
-                        <a href="#" class="text-white">Testing</a>
+                        <a href="index.php#services" class="text-white text-decoration-none link-info">Grooming</a>
                     </p>
-                    -->
+                   
                 </div>
                 <!-- end of products -->
 
