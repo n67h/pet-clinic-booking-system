@@ -36,11 +36,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="#">Services</a>
+                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="#services">Services</a>
                         </li>
                                         
                         <li class="nav-item">
-                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="#">About</a>
+                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="#">Contact Us</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link dropdown-item text-white" href="#">About</a>
