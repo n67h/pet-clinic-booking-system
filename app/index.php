@@ -61,11 +61,104 @@
         </button>
     </div>
     <!-- end of carousel -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br>
+    <!-- start of description -->
+    <!-- start of first row -->
+    <div class="row mt-5">
+        <!-- start of image on left side -->
+        <div class="col-sm-6">
+            <div class="card text-bg-dark guitar">
+                <img src="../resources/images/corey2.jpg" class="card-img" alt="random img">
+                <div class="card-img-overlay pt-5 ps-5 mt-5 ms-5">
+                    <h3><a class="nav-link card-title text-white float-start" href="#">test</a></h3>
+                    <p><a class="nav-link card-title text-white float-start" href="#">random text</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- end of image on left side -->
+        <!-- start of description on right side -->
+        <div class="col-sm-6">
+            <div class="container text-start">
+                <h2 class="text-start">Experienced Veterinarians</h2>
+                <p class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, cum. Quas cum consectetur aliquid veritatis dignissimos dolorum ducimus asperiores odit dicta corporis voluptate quis et adipisci recusandae, dolores temporibus iusto!</p>
+                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati, debitis, sit nobis corporis aut quibusdam voluptatem!</p>
+            </div>
+        </div>
+        <!-- end of description on right side -->
+    </div>
+    <!-- end of first row -->
+    <!-- start of second row -->
+    <div class="row mt-5">
+        <!-- start of description on left side -->
+        <div class="col-sm-6">
+            <div class="container text-end">
+                <h2 class="text-end">Experienced Veterinarians</h2>
+                <p class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, cum. Quas cum consectetur aliquid veritatis dignissimos dolorum ducimus asperiores odit dicta corporis voluptate quis et adipisci recusandae, dolores temporibus iusto!</p>
+                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati, debitis, sit nobis corporis aut quibusdam voluptatem!</p>
+            </div>
+        </div>
+        <!-- end of description on left side -->
+        <!-- start of image on right side -->
+        <div class="col-sm-6">
+            <div class="card text-bg-dark guitar">
+                <img src="../resources/images/corey2.jpg" class="card-img" alt="random img">
+                <div class="card-img-overlay pt-5 ps-5 mt-5 ms-5">
+                    <h3><a class="nav-link card-title text-white float-start" href="#">test</a></h3>
+                    <p><a class="nav-link card-title text-white float-start" href="#">random text</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- end of image on right side -->
+    </div>
+    <!-- end of second row -->
+    <!-- end of description -->
+    <br><br>
+    <!-- start of cards -->
+    <div class="container-md me-auto mb-auto pe-auto pb-5 pt-5" id="services">
+        <!-- start of cards inner container -->
+        <div class="container text-center">
+            <!-- start of cards div row -->
+            <div class="row">
+                <!-- start of first card -->
+                <div class="col-sm-4">
+                    <div class="card services">
+                        <div class="card-body">
+                            <h1 class="card-title"><i class="fa-solid fa-syringe"></i></h1>
+                            <p class="card-text fw-bold">Vaccination</p>
+                            <p class="card-text fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores error obcaecati iusto commodi reprehenderit ducimus nisi, cupiditate corporis eum earum magnam adipisci quibusdam sed! Et eius neque hic quasi ratione.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of first card -->
+                <!-- start of second card -->
+                <div class="col-sm-4">
+                    <div class="card services">
+                        <div class="card-body">
+                            <h1 class="card-title"><i class="fa-solid fa-stethoscope"></i></h1>
+                            <p class="card-text fw-bold">Medication</p>
+                            <p class="card-text fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores error obcaecati iusto commodi reprehenderit ducimus nisi, cupiditate corporis eum earum magnam adipisci quibusdam sed! Et eius neque hic quasi ratione.</p>
+                        </div>
+                    </div>
+                </div>  
+                <!-- end of second card -->
+                <!-- start of third card -->
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title"><i class="fa-solid fa-scissors"></i></h1>
+                            <p class="card-text fw-bold">Grooming</p>
+                            <p class="card-text fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores error obcaecati iusto commodi reprehenderit ducimus nisi, cupiditate corporis eum earum magnam adipisci quibusdam sed! Et eius neque hic quasi ratione.</p>
+                        </div>
+                    </div>
+                </div> 
+                <!-- end of third card -->
+            </div>
+            <!-- end of cards div row -->
+        </div>  
+        <!-- end of cards inner container -->
+    </div> 
+    <!-- end of cards -->
+    <br><br>
     <div class="container">
         <h1 class="text-center" id="test">test</h1>
     </div>
