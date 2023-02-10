@@ -7,7 +7,22 @@
     <!-- latest bootstrap cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- custom css -->
-    <link rel="stylesheet" href="../resources/css/style.css">
+    <?php
+        // get the current url
+        $url =  "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+        // parse url
+        $parts = parse_url($url);
+        // get the 'account' folder path in url
+        $path_parts= explode('/', $parts['path']);
+        $path = $path_parts[2];
+        // check if the url is currently in account folder
+        if($path !== 'account'){
+            echo '<link rel="stylesheet" href="../resources/css/style.css">';
+        }else{
+            echo '<link rel="stylesheet" href="../../resources/css/style.css">';
+        }
+    ?>
+    
 </head>
 <!-- start of body tag -->
 <body>
@@ -75,7 +90,7 @@
                                                     <a class="nav-link dropdown-toggle text-white link-info fs-5 text-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $first_name. ' ' .$last_name; ?></a>
                                                         <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                                                             <li><a href="account/profile.php" class="dropdown-item text-white link-info account">My Account</a></li>
-                                                            <li><a href="purchase.php" class="dropdown-item text-white link-info account">My Purchase</a></li>
+                                                            <li><a href="#" class="dropdown-item text-white link-info account">My Appointments</a></li>
                                                             <li><a href="includes/logout.inc.php" class="dropdown-item text-white link-info account">Log out</a></li>
                                             <?php
                                                 }else{

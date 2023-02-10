@@ -1,3 +1,6 @@
+<?php
+    require_once 'includes/session.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,7 +146,7 @@
                 <!-- end of second card -->
                 <!-- start of third card -->
                 <div class="col-sm-4">
-                    <div class="card">
+                    <div class="card services">
                         <div class="card-body">
                             <h1 class="card-title"><i class="fa-solid fa-scissors"></i></h1>
                             <p class="card-text fw-bold">Grooming</p>
