@@ -6,7 +6,7 @@
         $selector = mysqli_real_escape_string($conn, $_POST['selector']);
         $validator = mysqli_real_escape_string($conn, $_POST['validator']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
-        $passwordRepeat = mysqli_real_escape_string($conn, $_POST['password-repeat']);
+        $passwordRepeat = mysqli_real_escape_string($conn, $_POST['password_repeat']);
 
         if(passwordEmpty($password) !== false) {
             header('location: ../reset-password.php?error=passworderror');
@@ -60,7 +60,7 @@
 
                     $tokenEmail = $row['password_reset_email'];
 
-                    $sql = "SELECT * FROM user WHERE email = ?;";
+                    $sql = "SELECT user.*, user_info.user_id, user_info.email FROM user INNER JOIN user_info USING (user_id) WHERE user_info.email = ?;";
                     $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt, $sql)) {
@@ -76,7 +76,8 @@
                             echo 'There was an error.';
                             die();
                         } else {
-                            $sql = "UPDATE users SET password = ? WHERE email = ?;";
+                            $user_id = $row['user_id'];
+                            $sql = "UPDATE user SET password = ? WHERE user_id = ?;";
                             $stmt = mysqli_stmt_init($conn);
 
                             if(!mysqli_stmt_prepare($stmt, $sql)) {
@@ -84,10 +85,10 @@
                                 die();
                             } else {
                                 $newPasswordHash = password_hash($password, PASSWORD_DEFAULT);
-                                mysqli_stmt_bind_param($stmt, 'ss', $newPasswordHash, $tokenEmail);
+                                mysqli_stmt_bind_param($stmt, 'si', $newPasswordHash, $user_id);
                                 mysqli_stmt_execute($stmt);
 
-                                $sql = "DELETE FRO< password_reset WHERE password_reset_email = ?;";
+                                $sql = "DELETE FROM password_reset WHERE password_reset_email = ?;";
                                 $stmt = mysqli_stmt_init($conn);
                                 if(!mysqli_stmt_prepare($stmt, $sql)) {
                                     echo 'There was an error.';

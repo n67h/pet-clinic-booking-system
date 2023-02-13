@@ -48,15 +48,17 @@
                                                 </div>
                                                 <div class="col-md-6 mb-5">
                                                     <form action="includes/reset-password.inc.php" method="post">
+                                                        <input type="hidden" name="selector" value="<?= $selector; ?>">
+                                                        <input type="hidden" name="validator" value="<?= $validator; ?>">
                                                         <div class="mb-3">
                                                             <label for="password" class="form-label fs-5 ps-2">Password<span class="text-danger fs-5"></span><span class="text-success fs-5"></span></label>
                                                             <input type="password" name="password" class="form-control" id="password" placeholder="" value="">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="repeat_password" class="form-label fs-5 ps-2">Repeat Password<span class="text-danger fs-5"></span><span class="text-success fs-5"></span></label>
-                                                            <input type="password" name="repeat_password" class="form-control" id="repeat_password" placeholder="" value="">
+                                                            <label for="password_repeat" class="form-label fs-5 ps-2">Repeat Password<span class="text-danger fs-5"></span><span class="text-success fs-5"></span></label>
+                                                            <input type="password" name="password_repeat" class="form-control" id="password_repeat" placeholder="" value="">
                                                         </div>
-                                                        <button type="submit" name="reset-password" class="btn btn-primary btn-lg mb-4 mt-4" style="width: 100%;">Reset Password</button>
+                                                        <button type="submit" name="reset-password-submit" class="btn btn-primary btn-lg mb-4 mt-4" style="width: 100%;">Reset Password</button>
                                                     </form>
                                                 </div>
                                                 <div class="col-md-3">
