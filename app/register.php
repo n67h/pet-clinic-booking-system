@@ -110,10 +110,6 @@
                     }
                 }
 
-                if(emailExists($conn, $email) !== false) {
-                    $email_error = ' Email is already taken.';
-                }
-
                 //validate password
                 if(passwordEmpty($password) !== false) {
                     $password_error = ' *This field is required';
@@ -290,7 +286,7 @@
                             <div class="row mb-1">
                                 <div class="col-sm-12">
                                     <div class="mb-3 mt-3 text-center">
-                                        <button type="submit" name="register" class="btn btn-info btn-lg mb-4" style="width: 100%;">Register</button>
+                                        <button type="submit" name="register" class="btn btn-primary btn-lg mb-4" style="width: 100%;">Register</button>
                                         <a href="login.php" class="">Already have an account?</a>
                                     </div>
                                 </div>

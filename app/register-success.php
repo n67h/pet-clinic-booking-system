@@ -42,7 +42,6 @@
                                 </div>
                             </div>
                             <!-- end of first row -->
-                        </form>
                     </div>
                     <!-- end of card body -->
                 </div>

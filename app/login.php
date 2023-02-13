@@ -307,8 +307,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3 text-center">
-                                    <a href="#" class="mt-1">Forgot password?</a>
-                                    <button type="submit" name="login" class="btn btn-info btn-lg mb-4 mt-4" style="width: 100%;">Log in</button>
+                                    <a href="reset-password.php" class="mt-1">Forgot password?</a>
+                                    <button type="submit" name="login" class="btn btn-primary btn-lg mb-4 mt-4" style="width: 100%;">Log in</button>
                                     <a href="register.php" class="">New to Veterinary Clinic?</a>
                                 </div>
                             </div>

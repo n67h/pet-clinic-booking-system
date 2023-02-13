@@ -44,3 +44,11 @@ CREATE TABLE user_info (
 
     FOREIGN KEY(user_id) REFERENCES user(user_id) ON DELETE SET NULL ON UPDATE CASCADE
 );
+
+CREATE TABLE password_reset (
+	password_reset_id int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    password_reset_email text NOT NULL,
+    password_reset_selector text NOT NULL,
+    password_reset_token longtext NOT NULL,
+    password_reset_expires text NOT NULL
+);
