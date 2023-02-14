@@ -24,8 +24,8 @@
         <div class="carousel-inner">
             <!-- start of first image for carousel -->
             <div class="carousel-item active">
-                <img src="../resources/images/corey2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <img src="../resources/images/dog2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark">
                     <h1>test</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quidem, mollitia nisi doloribus corporis aliquid provident cupiditate aperiam, dolorum nihil quisquam labore officia repellat qui fugiat, iste quaerat ea a?</p>
                     <button type="button" class="btn btn-light btn-lg"><a class="nav-link text-dark ps-3" href="#">BOOK NOW</a></button>
@@ -34,8 +34,8 @@
             <!-- end of first image for carousel -->
             <!-- start of second image for carousel -->
             <div class="carousel-item">
-                <img src="../resources/images/qcitizen_id_back.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <img src="../resources/images/cat1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark">
                     <h1>test</h1>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate labore, natus quibusdam, rerum modi dicta tempora sint suscipit deserunt amet dolore corporis voluptates eaque facilis, quaerat voluptas commodi. Quo, eum?</p>
                     <button type="button" class="btn btn-light btn-lg"><a class="nav-link text-dark ps-3" href="#">BOOK NOW</a></button>
@@ -44,8 +44,8 @@
             <!-- end of second image for carousel -->
             <!-- start of third image for carousel -->
             <div class="carousel-item">
-                <img src="../resources/images/martino2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <img src="../resources/images/qcitizen_id_back.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark">
                     <h1>test</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio molestias, ut sed iusto amet iste facere, ad, asperiores earum voluptate blanditiis deleniti repellat ab odit deserunt inventore illo dolores dolorum.</p>
                     <button type="button" class="btn btn-light btn-lg"><a class="nav-link text-dark ps-3" href="#">BOOK NOW</a></button>
@@ -71,10 +71,10 @@
         <!-- start of image on left side -->
         <div class="col-sm-6">
             <div class="card text-bg-dark guitar">
-                <img src="../resources/images/corey2.jpg" class="card-img" alt="random img">
+                <img src="../resources/images/veterinary1.jpg" class="card-img" alt="random img">
                 <div class="card-img-overlay pt-5 ps-5 mt-5 ms-5">
-                    <h3><a class="nav-link card-title text-white float-start" href="#">test</a></h3>
-                    <p><a class="nav-link card-title text-white float-start" href="#">random text</a></p>
+                    <h3><a class="nav-link card-title text-dark float-start" href="#">test</a></h3>
+                    <p><a class="nav-link card-title text-dark float-start" href="#">random text</a></p>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
             <div class="container text-start">
                 <h2 class="text-start">Experienced Veterinarians</h2>
                 <p class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, cum. Quas cum consectetur aliquid veritatis dignissimos dolorum ducimus asperiores odit dicta corporis voluptate quis et adipisci recusandae, dolores temporibus iusto!</p>
-                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati, debitis, sit nobis corporis aut quibusdam voluptatem!</p>
+                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati</p>
             </div>
         </div>
         <!-- end of description on right side -->
@@ -97,7 +97,7 @@
             <div class="container text-end">
                 <h2 class="text-end">Experienced Veterinarians</h2>
                 <p class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, cum. Quas cum consectetur aliquid veritatis dignissimos dolorum ducimus asperiores odit dicta corporis voluptate quis et adipisci recusandae, dolores temporibus iusto!</p>
-                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati, debitis, sit nobis corporis aut quibusdam voluptatem!</p>
+                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati</p>
             </div>
         </div>
         <!-- end of description on left side -->

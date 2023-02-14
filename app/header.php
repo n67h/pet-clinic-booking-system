@@ -115,7 +115,7 @@
                 <!-- start of search bar -->
                 <form class="d-flex" role="search">
                     <input class="form-control me-0 rounded-0" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-info rounded-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button class="btn btn-primary rounded-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
                 <!-- end of search bar -->
             </div>
