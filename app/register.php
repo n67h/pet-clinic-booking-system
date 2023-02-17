@@ -19,7 +19,7 @@
     <?php
         require_once 'header.php';
     ?>
-    <br><br><br><br>
+    <br><br>
     <?php
         if(!isset($_SESSION['user_id'])){
             $first_name_error = ' *';

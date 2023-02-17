@@ -64,7 +64,6 @@
         </button>
     </div>
     <!-- end of carousel -->
-    <br><br>
     <!-- start of description -->
     <!-- start of first row -->
     <div class="row mt-5">
@@ -104,10 +103,10 @@
         <!-- start of image on right side -->
         <div class="col-sm-6">
             <div class="card text-bg-dark guitar">
-                <img src="../resources/images/corey2.jpg" class="card-img" alt="random img">
+                <img src="../resources/images/veterinary1.jpg" class="card-img" alt="random img">
                 <div class="card-img-overlay pt-5 ps-5 mt-5 ms-5">
-                    <h3><a class="nav-link card-title text-white float-start" href="#">test</a></h3>
-                    <p><a class="nav-link card-title text-white float-start" href="#">random text</a></p>
+                    <h3><a class="nav-link card-title text-dark float-start" href="#">test</a></h3>
+                    <p><a class="nav-link card-title text-dark float-start" href="#">random text</a></p>
                 </div>
             </div>
         </div>
@@ -163,7 +162,7 @@
     <!-- end of cards -->
     <br><br>
     <div class="container">
-        <h1 class="text-center" id="test">test</h1>
+        <!-- <h1 class="text-center" id="test">test</h1> -->
     </div>
     <?php
         require_once 'footer.php';
