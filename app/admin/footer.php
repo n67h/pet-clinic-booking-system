@@ -40,13 +40,13 @@
         } );
     </script>
 
-    <!-- start of script for view modal user-role -->
+    <!-- start of script for view modal service -->
     <script>
         $(document).ready(function () {
             // $('body').on('click', '.edit', function(event) {
             $('body').on('click', '.view', function(event) {
 
-                $('#view_modal').modal('show');
+                $('#view_service_modal').modal('show');
 
                 $tr = $(this).closest('tr');
 
@@ -56,32 +56,23 @@
 
                 console.log(data);
 
-                $('#view_user_role_id').val(data[0])
-                $('#view_role').val(data[1]);
-                $('#view_user_role').val(data[2]);
-                $('#view_user').val(data[3]);
-                $('#view_category').val(data[4]);
-                $('#view_product').val(data[5]);
-                $('#view_order').val(data[6]);
-                $('#view_shipping_fee').val(data[7]);
-                $('#view_message').val(data[8]);
-                $('#view_feedback').val(data[9]);
-                $('#view_chatbot').val(data[10]);
-                $('#view_log').val(data[11]);
-                $('#view_settings').val(data[12]);
+                $('#view_service_id').val(data[0])
+                $('#view_service').val(data[1]);
+                $('#view_description').val(data[2]);
+                
                 
             });
         });
     </script>
-    <!-- end of script for view modal user-role -->
+    <!-- end of script for view modal service -->
 
-    <!-- start of script for edit modal user-role -->
+    <!-- start of script for edit modal service -->
     <script>
         $(document).ready(function () {
             // $('body').on('click', '.edit', function(event) {
             $('body').on('click', '.edit', function(event) {
 
-                $('#edit_modal').modal('show');
+                $('#edit_service_modal').modal('show');
 
                 $tr = $(this).closest('tr');
 
@@ -91,32 +82,22 @@
 
                 console.log(data);
 
-                $('#edit_user_role_id').val(data[0])
-                $('#edit_role').val(data[1]);
-                $('#edit_user_role').val(data[2]);
-                $('#edit_user').val(data[3]);
-                $('#edit_category').val(data[4]);
-                $('#edit_product').val(data[5]);
-                $('#edit_order').val(data[6]);
-                $('#edit_shipping_fee').val(data[7]);
-                $('#edit_message').val(data[8]);
-                $('#edit_feedback').val(data[9]);
-                $('#edit_chatbot').val(data[10]);
-                $('#edit_log').val(data[11]);
-                $('#edit_settings').val(data[12]);
+                $('#edit_service_id').val(data[0])
+                $('#edit_service').val(data[1]);
+                $('#edit_description').val(data[2]);
                 
             });
         });
     </script>
-    <!-- end of script for edit modal user-role -->
+    <!-- end of script for edit modal service -->
 
-    <!-- start of script for delete modal user-role -->
+    <!-- start of script for delete modal service -->
     <script>
         $(document).ready(function () {
 
             $('body').on('click', '.delete', function(event) {
 
-                $('#delete_modal').modal('show');
+                $('#delete_service_modal').modal('show');
 
                 $tr = $(this).closest('tr');
 
@@ -126,11 +107,11 @@
 
                 console.log(data);
 
-                $('#delete_user_role_id').val(data[0]);
+                $('#delete_service_id').val(data[0]);
 
             });
         });
     </script>
-    <!-- end of script for delete modal user-role -->
+    <!-- end of script for delete modal service -->
 </body>
 </html>
