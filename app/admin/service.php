@@ -11,7 +11,6 @@
     <?php
         require_once 'sidebar.php';
     ?>
-
     <div class="container">
         <h3 class="text-dark mt-3 text-center">Services</h3>
         
