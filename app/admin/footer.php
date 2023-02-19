@@ -1,5 +1,5 @@
-</div>
-    </div>
+<!-- </div> -->
+    <!-- </div> -->
     <!-- end of main container -->
 
     <!-- js section -->
@@ -59,6 +59,8 @@
                 $('#view_service_id').val(data[0])
                 $('#view_service').val(data[1]);
                 $('#view_description').val(data[2]);
+                $('#view_date_added').val(data[3]);
+                $('#view_last_updated').val(data[4]);
                 
                 
             });
