@@ -10,10 +10,10 @@
         
 
         if(empty($edit_service) || empty($edit_description)){
-            $error_message = "Error! All fields are required.";
+            $error_message = "All fields are required!";
             echo "<script type='text/javascript'>alert('$error_message');</script>";
 
-            $error_redirect = '<h3 style="color: red; text-align: center;"> Error! All fields are required. You will be redirected to previous page in <span id="counter">5</span> second(s).</h3>
+            $error_redirect = '<h3 style="color: red; text-align: center;">All fields are required! You will be redirected to previous page in <span id="counter">5</span> second(s).</h3>
             <script type="text/javascript">
                 function countdown() {
                     var i = document.getElementById("counter");
