@@ -278,7 +278,7 @@
             <div class="modal-content">
                 <!-- start of modal header -->
                 <div class="modal-header bg-dark border-0">
-                    <h4 class="modal-title text-white">Edit user role</h4>
+                    <h4 class="modal-title text-white">Edit service</h4>
                     <button type="button" class="btn btn-danger close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
                     </button>
@@ -313,7 +313,7 @@
                                                 <div class="form-group">
                                                     <label for="edit_description" class="ps-2 pb-2">Service description</label>
                                                     <div class="form-floating">
-                                                        <textarea class="form-control" placeholder="Leave a comment here" id="edit_description" style="height: 100px" name="edit_description"></textarea>
+                                                        <textarea class="form-control pt-1" placeholder="Leave a comment here" id="edit_description" style="height: 100px" name="edit_description"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -350,7 +350,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-dark text-white">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete user role</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete service</h1>
                     <button type="button" class="btn btn-danger close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span></button>
                 </div>
                 <!-- start of delete modal form -->
