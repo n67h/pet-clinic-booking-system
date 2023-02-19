@@ -22,7 +22,6 @@
             echo '<link rel="stylesheet" href="../../resources/css/style.css">';
         }
     ?>
-    
 </head>
 <!-- start of body tag -->
 <body>

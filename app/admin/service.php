@@ -11,17 +11,34 @@
     <?php
         require_once 'sidebar.php';
     ?>
-    <div class="container">
+    <!-- start of first container -->
+    <div class="container ms-5">
+        <?php
+            if(isset($_POST['add'])){
+                $add_service = mysqli_real_escape_string($conn, $_POST['add_service']);
+                $add_description = mysqli_real_escape_string($conn, $_POST['add_description']);
+                
+                
+                if(empty($add_service) || empty($add_description)){
+                    $error_message = "All fields are required!";
+                    echo "<script type='text/javascript'>alert('$error_message');</script>";
+                }else{
+                    $sql = "INSERT INTO service (service, description) VALUES ('$add_service', '$add_description');";
+    
+                    if(mysqli_query($conn, $sql)){
+                    }
+                }
+            }
+        ?>
         <h3 class="text-dark mt-3 text-center">Services</h3>
-        
         <!-- start of container fluid -->
         <div class="container-fluid mt-3">
             <!-- start of add service modal button -->
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#add-service-role">Add service</button>
+            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#add_service_modal">Add service</button>
             <!-- end of add service modal button -->
 
             <!-- start of add service modal -->
-            <div class="modal fade" id="add-service-role" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="add_service_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-white">
@@ -54,9 +71,9 @@
                                                     
                                                     <div class="col-md-12 col-6 mt-3">
                                                         <div class="form-group">
+                                                            <label for="add_description" class="ps-2 pb-2">Service description</label>
                                                             <div class="form-floating">
                                                                 <textarea class="form-control" placeholder="Leave a comment here" id="add_description" style="height: 100px" name="add_description"></textarea>
-                                                                <label for="add_description">Service description</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -98,19 +115,19 @@
                                 <!-- start of table header -->
                                 <thead>
                                     <tr>
-                                        <th class="table-light text-uppercase">service_id</th>
+                                        <th class="table-light text-uppercase">service id</th>
                                         <th class="table-light text-uppercase">service</th>
                                         <th class="table-light text-uppercase">description</th>
-                                        <th class="table-light text-uppercase">date_added</th>
-                                        <th class="table-light text-uppercase">last_updated</th>
-                                        <th class="table-light text-uppercase">Action</th>
+                                        <th class="table-light text-uppercase">date added</th>
+                                        <th class="table-light text-uppercase">last updated</th>
+                                        <th class="table-light text-uppercase">action</th>
                                     </tr>
                                 </thead>
                                 <!-- end of table header -->
                                 <!-- start of table body -->
                                 <tbody>
                                 <?php
-                                    $sql_select = "SELECT * FROM service WHERE is_deleted != 1";
+                                    $sql_select = "SELECT * FROM service WHERE is_deleted != 1 ORDER BY service_id DESC;";
                                     $result_select = mysqli_query($conn, $sql_select);
                                     if(mysqli_num_rows($result_select) > 0){
                                         while($row_select = mysqli_fetch_assoc($result_select)){
@@ -197,7 +214,7 @@
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
                                                     <label for="view_service" class="ps-2 pb-2">Service</label>
-                                                    <input type="text" class="form-control" name="view_service" id="view_service" value="">
+                                                    <input type="text" class="form-control" name="view_service" id="view_service" value="" disabled>
                                                 </div>
                                             </div>
 
@@ -206,10 +223,24 @@
                                             
                                             <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_description" class="ps-2 pb-2">Description</label>
+                                                    <label for="view_description" class="ps-2 pb-2">Service description</label>
                                                     <div class="form-floating">
                                                         <textarea class="form-control p-3" placeholder="Leave a comment here" id="view_description" style="height: 100px" name="view_description" disabled></textarea>
                                                     </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-6 mt-3">
+                                                <div class="form-group">
+                                                    <label for="view_date_added" class="ps-2 pb-2">Date added</label>
+                                                    <input type="text" class="form-control" name="view_date_added" id="view_date_added" value="" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-6 mt-3">
+                                                <div class="form-group">
+                                                    <label for="view_last_updated" class="ps-2 pb-2">Last updated</label>
+                                                    <input type="text" class="form-control" name="view_last_updated" id="view_last_updated" value="" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -280,7 +311,7 @@
                                             
                                             <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_description" class="ps-2 pb-2">Description</label>
+                                                    <label for="edit_description" class="ps-2 pb-2">Service description</label>
                                                     <div class="form-floating">
                                                         <textarea class="form-control" placeholder="Leave a comment here" id="edit_description" style="height: 100px" name="edit_description"></textarea>
                                                     </div>
