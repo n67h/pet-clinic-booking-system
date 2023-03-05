@@ -46,11 +46,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="#test">Book</a>
+                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="calendar.php">Book</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="#services">Services</a>
+                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="index.php#services">Services</a>
                         </li>
                                         
                         <li class="nav-item">
