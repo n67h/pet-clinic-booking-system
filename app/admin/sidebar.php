@@ -34,19 +34,19 @@
             <ul class="list-unstyled px-2">
                 <div class="d-flex mt-1 ps-2 pb-1">
                     <?php
-                    if(isset($_SESSION['user_id'])){
-                        $sql = "SELECT user.user_id, user_info.user_id, user_info.first_name, user_info.last_name, user_info.image FROM user_info INNER JOIN user USING (user_id) WHERE user_id = $user_id_session;";
-                        $result = mysqli_query($conn, $sql);
-                        if(mysqli_num_rows($result) > 0){
-                            while($row = mysqli_fetch_assoc($result)){
-                                $firstname = $row['first_name'];
-                                $lastname = $row['last_name'];
-                                $image = $row['image'];
+                        if(isset($_SESSION['user_id'])){
+                            $sql = "SELECT user.user_id, user_info.user_id, user_info.first_name, user_info.last_name, user_info.image FROM user_info INNER JOIN user USING (user_id) WHERE user_id = $user_id_session;";
+                            $result = mysqli_query($conn, $sql);
+                            if(mysqli_num_rows($result) > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $firstname = $row['first_name'];
+                                    $lastname = $row['last_name'];
+                                    $image = $row['image'];
+                                }
+                                echo '<img class="text-white rounded-circle" src="../' .$image. '" alt="" style="width: 20%; height: 30%;">';
+                                echo '<li class="px-3 py-2 d-block text-white">' .$firstname. ' ' .$lastname. '</li>';
                             }
-                            echo '<img class="text-white rounded-circle" src="../' .$image. '" alt="" style="width: 20%; height: 30%;">';
-                            echo '<li class="px-3 py-2 d-block text-white">' .$firstname. ' ' .$lastname. '</li>';
                         }
-                    }
                     ?>
                     
                 </div>
