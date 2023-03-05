@@ -86,8 +86,12 @@
             $eventNum = 0;
             $today = $date==date('Y-m-d')? "today" : "";
 
-            if($date < date('Y-m-d')){
-                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>N/A</button>";
+            if($dayname == 'saturday' && $date < date('Y-m-d') || $dayname == 'sunday' && $date < date('Y-m-d')){
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Unavailable</button>";
+            }elseif($dayname == 'saturday' || $dayname == 'sunday'){
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Close</button>";
+            }elseif($date < date('Y-m-d')){
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Unavailable</button>";
             }else{
                 // $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
 
