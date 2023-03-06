@@ -1,7 +1,7 @@
 <?php
     require_once 'includes/session.inc.php';
-    function build_calendar($month, $year) {
-        $mysqli = new mysqli('localhost', 'root', '', 'pet_clinic');
+    ob_start();
+    function build_calendar($month, $year, $conn, $user_id_session) {
         // $stmt = $mysqli->prepare("select * from appointment where MONTH(date) = ? AND YEAR(date) = ?");
         // $stmt->bind_param('ss', $month, $year);
         // $bookings = array();
@@ -86,11 +86,19 @@
             $eventNum = 0;
             $today = $date==date('Y-m-d')? "today" : "";
 
+            list($year, $month, $day) = explode('-', $date);
+            $timestamp = strtotime("$year-$month-$day");
+
+
             if($dayname == 'saturday' && $date < date('Y-m-d') || $dayname == 'sunday' && $date < date('Y-m-d')){
                 $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Unavailable</button>";
+            }elseif($dayname == 'saturday' && $timestamp > strtotime('+3 months') || $dayname == 'sunday' && $timestamp > strtotime('+3 months')){
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Unavailable</button>";
             }elseif($dayname == 'saturday' || $dayname == 'sunday'){
-                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Close</button>";
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Close</button>";
             }elseif($date < date('Y-m-d')){
+                $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Unavailable</button>";
+            }elseif($timestamp > strtotime('+3 months')){
                 $calendar.="<td><h4>$currentDay</h4> <button class='btn btn-secondary btn-xs'>Unavailable</button>";
             }else{
                 // $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Book</a>";
@@ -98,24 +106,119 @@
                 // Button trigger modal
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <button type='button' class='btn btn-success btn-xs' data-bs-toggle='modal' data-bs-target='#date-".$date."'>Book</button>";
             ?>
-                <!-- Modal -->
+                <!-- start of booking modal -->
                 <div class="modal fade" id="date-<?= $date; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <!-- start of booking modal dialog -->
+                    <div class="modal-dialog modal-lg">
+                        <!-- start of booking modal content -->
                         <div class="modal-content">
+                            <!-- start of booking modal header -->
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel"><?= $date; ?></h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Book an appointment. <?= $date; ?></h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                            <!-- end of booking modal header -->
+                            <!-- start of booking modal body -->
                             <div class="modal-body">
-                                ...
+                                <!-- start of booking modal form -->
+                                <form action="" method="post">
+                                    <?php
+                                        $sql_session = "SELECT * FROM user_info WHERE user_id = $user_id_session;";
+                                        $result_session = mysqli_query($conn, $sql_session);
+                                        if(mysqli_num_rows($result_session) > 0){
+                                            while($row_session = mysqli_fetch_assoc($result_session)){
+                                                $email = $row_session['email'];
+                                                $phone_number = $row_session['phone_number'];
+                                                $first_name = $row_session['first_name'];
+                                                $last_name = $row_session['last_name'];
+                                            }
+                                        }
+                                    ?>
+                                    <!-- start of booking modal inner row -->
+                                    <div class="row">
+                                        <h4 class="ps-4">Customer details</h4>
+                                        <hr class="ms-3" style="width: 96%;">
+                                        
+                                        <div class="col-md-6 col-6">
+                                            <div class="form-group">
+                                                <label for="full_name" class="ps-2 pb-2">Owner's name</label>
+                                                <input type="text" class="form-control" name="full_name" id="full_name" value="<?= $first_name .' '. $last_name; ?>" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 mt-3">
+                                        </div>
+                                        
+                                        <div class="col-md-6 col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="email" class="ps-2 pb-2">Email</label>
+                                                <input type="text" class="form-control" name="email" id="email" value="<?= $email; ?>" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 mt-3 mb-5">
+                                            <div class="form-group">
+                                                <label for="phone_number" class="ps-2 pb-2">Contact number</label>
+                                                <input type="text" class="form-control" name="phone_number" id="phone_number" value="<?= $phone_number; ?>" readonly>
+                                            </div>
+                                        </div>
+
+                                        <h4 class="ps-4">Appointment details</h4>
+                                        <hr class="ms-3" style="width: 96%;">
+
+                                        <div class="col-md-6 col-6">
+                                            <div class="form-group">
+                                                <label for="add_user_role" class="ps-2 pb-2">Services</label>
+                                                <select class="form-select" aria-label="Default select example" name="add_user_role" id="add_user_role" required>
+                                                    <option selected disabled>-- Select service --</option>
+                                                    <?php
+                                                        $sql_service = "SELECT * FROM service WHERE is_deleted != 1;";
+                                                        $result_service = mysqli_query($conn, $sql_service);
+                                                        if(mysqli_num_rows($result_service) > 0) {
+                                                            while($row_service = mysqli_fetch_assoc($result_service)){
+                                                                $service_id = $row_service['service_id'];
+                                                                $service = $row_service['service'];
+                                                    ?>
+                                                                <option value="<?= $service_id; ?>"><?= $service; ?></option>
+                                                                
+                                                    <?php
+                                                            }
+                                                        }
+                                                    ?>
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end of booking modal inner row -->
+                                </form>
+                                <!-- end of booking modal form -->
+                                <?php
+                                    $sql = "SELECT timeslot FROM appointment WHERE is_deleted != 1 AND date = '$date';";
+                                    $result = mysqli_query($conn, $sql);
+                                    if(mysqli_num_rows($result) > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            $timeslot = $row['timeslot'];
+                                            echo $timeslot;
+                                        }
+                                    }
+                                ?>
+                                </form>
                             </div>
+                            <!-- end of booking modal body -->
+                            <!-- start of booking modal footer -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
+                            <!-- end of booking modal footer -->
                         </div>
+                        <!-- end of booking modal content -->
                     </div>
+                    <!-- end of booking modal dialog -->
                 </div>
+                <!-- end of modal booking -->
             <?php  
             }
                 
@@ -232,8 +335,10 @@
                 background:yellow;
             }
     </style>
-</head>
-<body>
+
+    <?php
+        if(isset($_SESSION['user_id'])){
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -246,13 +351,18 @@
                         $month = $dateComponents['mon']; 			     
                         $year = $dateComponents['year'];
                     }
-                    echo build_calendar($month,$year);
+                    echo build_calendar($month, $year, $conn, $user_id_session);
                 ?>
             </div>
         </div>
     </div>
     <?php
+        }else{
+            header('location: index.php');
+            die();
+        }
         require_once 'footer.php';
+        ob_end_flush();
     ?>
 </body>
 <!-- end of body tag -->
