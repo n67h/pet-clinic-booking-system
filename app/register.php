@@ -26,6 +26,7 @@
             $last_name_error = ' *';
             $username_error = ' *';
             $email_error = ' *';
+            $phone_number_error = ' *';
             $password_error = ' *';
             $repeat_password_error = ' *';
             $terms_error = ' *';
@@ -34,6 +35,7 @@
             $last_name_value = '';
             $username_value = '';
             $email_value = '';
+            $phone_number_value = '';
             $password_value = '';
             $repeat_password_value = '';
             $terms_value = '';
@@ -42,6 +44,7 @@
             $last_name_success = '';
             $username_success = '';
             $email_success = '';
+            $phone_number_success = '';
             $password_success = '';
             $repeat_password_success = '';
             $terms_success = '';
@@ -51,6 +54,7 @@
                 $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
                 $username = mysqli_real_escape_string($conn, $_POST['username']);
                 $email = mysqli_real_escape_string($conn, $_POST['email']);
+                $phone_number = mysqli_real_escape_string($conn, $_POST['phone_number']);
                 $password = mysqli_real_escape_string($conn, $_POST['password']);
                 $repeat_password = mysqli_real_escape_string($conn, $_POST['repeat_password']);
     
@@ -110,6 +114,19 @@
                     }
                 }
 
+                // validate phone number
+                if(phoneEmpty($phone_number) !== false) {
+                    $phone_number_error = ' *This field is required.';
+                } else {
+                    if(phoneInvalid($phone_number) !== false) {
+                        $phone_number_error = ' *Invalid contact number.';
+                    } else {
+                        $phone_number_error = '';
+                        $phone_number_success = ' <i class="fa-sharp fa-solid fa-circle-check"></i>';
+                        $phone_number_value = $phone_number;
+                    }
+                }
+
                 //validate password
                 if(passwordEmpty($password) !== false) {
                     $password_error = ' *This field is required';
@@ -150,8 +167,8 @@
                 }
 
                 // if all the inputs are valid, then create the account for user and send email to verify their account
-                if(!empty($first_name) && !empty($last_name) && !empty($username) && !empty($email) && !empty($password) && !empty($repeat_password) && firstnameInvalid($first_name) === false && lastnameInvalid($last_name) === false && emailInvalid($email) === false && emailExists($conn, $email) === false && passwordInvalid($password) === false && passwordRepeatInvalid($repeat_password) === false && passwordMatch($password, $repeat_password) === false && $vkey != "" && $terms_error === "") {
-                    createUser($conn, $username, $password, $vkey, $email, $first_name, $last_name);
+                if(!empty($first_name) && !empty($last_name) && !empty($username) && !empty($email) && !empty($phone_number) && !empty($password) && !empty($repeat_password) && firstnameInvalid($first_name) === false && lastnameInvalid($last_name) === false && emailInvalid($email) === false && emailExists($conn, $email) === false && phoneInvalid($phone_number) === false && passwordInvalid($password) === false && passwordRepeatInvalid($repeat_password) === false && passwordMatch($password, $repeat_password) === false && $vkey != "" && $terms_error === "") {
+                    createUser($conn, $username, $password, $vkey, $email, $first_name, $last_name, $phone_number);
 
                     //Load Composer's autoloader
                     require 'vendor/autoload.php';
@@ -260,6 +277,16 @@
                             <div class="row mb-1">
                                 <div class="col-sm-6">
                                     <div class="mb-3">
+                                        <label for="phone_number" class="form-label fs-5 ps-2">Contact Number<span class="text-danger fs-5"><?= $phone_number_error; ?></span><span class="text-success fs-5"><?= $phone_number_success; ?></span></label>
+                                        <input type="number" name="phone_number" class="form-control" id="phone_number" placeholder="09123456789" value="<?= $phone_number_value; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end of third row -->
+                            <!-- start of fourth row -->
+                            <div class="row mb-1">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
                                         <label for="password" class="form-label fs-5 ps-2">Password<span class="text-danger fs-5"><?= $password_error; ?></span><span class="text-success fs-5"><?= $password_success; ?></span></label>
                                         <input type="password" name="password" class="form-control" id="password" placeholder="" value="<?= $password_value; ?>">
                                     </div>
@@ -271,8 +298,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end of third row -->
-                            <!-- start of fourth row -->
+                            <!-- end of fourth row -->
+                            <!-- start of fifth row -->
                             <div class="row mb-1">
                                 <div class="col-sm-12">
                                     <div class="form-check fs-5">
@@ -281,8 +308,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end of fourth row -->
-                            <!-- start of fifth row -->
+                            <!-- end of fifth row -->
+                            <!-- start of sixth row -->
                             <div class="row mb-1">
                                 <div class="col-sm-12">
                                     <div class="mb-3 mt-3 text-center">
@@ -291,7 +318,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end of fifth row -->
+                            <!-- end of sixth row -->
                         </form>
                         <!-- end of registration form -->
                     </div>
