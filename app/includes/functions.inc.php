@@ -171,8 +171,11 @@
 
     function phoneInvalid($phone_number) {
         $result;
+        $phoneLength = strlen($phone_number);
 
-        if (!preg_match("/((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/", $phone_number)) {
+        if($phoneLength > 11) {
+            $result = true;
+        } elseif (!preg_match("/((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/", $phone_number)) {
             $result = true;
         } else {
             $result = false;
@@ -289,7 +292,7 @@
         mysqli_stmt_close($stmt);
     }
 
-    function createUser($conn, $username, $password, $vkey, $email, $first_name, $last_name) {
+    function createUser($conn, $username, $password, $vkey, $email, $first_name, $last_name, $phone_number) {
 
         $sql_user = "INSERT INTO user (username, password, verification_key) VALUES (?, ?, ?);";
 
@@ -309,7 +312,7 @@
         mysqli_stmt_close($stmt_user);
 
 
-        $sql_user_info = "INSERT INTO user_info (user_id, email, first_name, last_name) VALUES (?, ?, ?, ?);";
+        $sql_user_info = "INSERT INTO user_info (user_id, email, phone_number, first_name, last_name) VALUES (?, ?, ?, ?, ?);";
 
         $stmt_user_info = mysqli_stmt_init($conn);
 
@@ -320,7 +323,7 @@
 
         $user_id = mysqli_insert_id($conn);
 
-        mysqli_stmt_bind_param($stmt_user_info, "isss", $user_id, $email, $first_name, $last_name);
+        mysqli_stmt_bind_param($stmt_user_info, "issss", $user_id, $email, $phone_number, $first_name, $last_name);
 
         mysqli_stmt_execute($stmt_user_info);
 
