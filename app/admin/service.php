@@ -15,15 +15,17 @@
     <div class="container ms-5">
         <?php
             if(isset($_POST['add'])){
+                $add_service_category = mysqli_real_escape_string($conn, $_POST['add_service_category']);
                 $add_service = mysqli_real_escape_string($conn, $_POST['add_service']);
                 $add_description = mysqli_real_escape_string($conn, $_POST['add_description']);
+                $add_price = mysqli_real_escape_string($conn, $_POST['add_price']);
                 
                 
-                if(empty($add_service) || empty($add_description)){
+                if(empty($add_service_category) || empty($add_service) || empty($add_description) || empty($add_price)){
                     $error_message = "All fields are required!";
                     echo "<script type='text/javascript'>alert('$error_message');</script>";
                 }else{
-                    $sql = "INSERT INTO service (service, description) VALUES ('$add_service', '$add_description');";
+                    $sql = "INSERT INTO service (category_id, service, description, price) VALUES ($add_service_category, '$add_service', '$add_description', '$add_price');";
     
                     if(mysqli_query($conn, $sql)){
                     }
@@ -61,12 +63,29 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-6 mt-3">
                                                         <div class="form-group">
-                                                            <label for="add_service" class="ps-2 pb-2">Service</label>
-                                                            <input type="text" class="form-control" name="add_service" id="add_service" value="" required>
+                                                            <label for="add_service_category" class="ps-2 pb-2">Category</label>
+                                                            <select class="form-select" aria-label="Default select example" name="add_service_category" id="add_service_category" required>
+                                                                <option selected disabled>-- Select category --</option>
+                                                                <?php
+                                                                    $sql_category = "SELECT * FROM category;";
+                                                                    $result_category = mysqli_query($conn, $sql_category);
+                                                                    if(mysqli_num_rows($result_category) > 0){
+                                                                        while($row_category = mysqli_fetch_assoc($result_category)){
+                                                                            $category_id = $row_category['category_id'];
+                                                                            $category_name = $row_category['category'];
+                                                                            echo '<option value="' .$category_id. '">' .$category_name. '</option>';
+                                                                        }
+                                                                    }
+                                                                ?>
+                                                            </select>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6 col-6 mt-3">
+                                                        <div class="form-group">
+                                                            <label for="add_service" class="ps-2 pb-2">Service</label>
+                                                            <input type="text" class="form-control" name="add_service" id="add_service" value="" required>
+                                                        </div>
                                                     </div>
                                                     
                                                     <div class="col-md-12 col-6 mt-3">
@@ -74,6 +93,16 @@
                                                             <label for="add_description" class="ps-2 pb-2">Service description</label>
                                                             <div class="form-floating">
                                                                 <textarea class="form-control" placeholder="Leave a comment here" id="add_description" style="height: 100px" name="add_description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 col-6 mt-3">
+                                                        <div class="form-group">
+                                                            <label for="add_price" class="ps-2 pb-2">Price</label>
+                                                            <div class="input-group mb-3">
+                                                                <span class="input-group-text" id="basic-addon1">₱</span>
+                                                                <input type="text" class="form-control" name="add_price" id="add_price" placeholder="" aria-label="" aria-describedby="basic-addon1">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -116,8 +145,11 @@
                                 <thead>
                                     <tr>
                                         <th class="table-light text-uppercase">service id</th>
+                                        <th class="table-light text-uppercase d-none">category id</th>
+                                        <th class="table-light text-uppercase">category</th>
                                         <th class="table-light text-uppercase">service</th>
                                         <th class="table-light text-uppercase">description</th>
+                                        <th class="table-light text-uppercase">price</th>
                                         <th class="table-light text-uppercase">date added</th>
                                         <th class="table-light text-uppercase">last updated</th>
                                         <th class="table-light text-uppercase">action</th>
@@ -127,23 +159,28 @@
                                 <!-- start of table body -->
                                 <tbody>
                                 <?php
-                                    $sql_select = "SELECT * FROM service WHERE is_deleted != 1 ORDER BY service_id DESC;";
+                                    $sql_select = "SELECT category.category_id, category.category, service.* FROM category INNER JOIN service USING (category_id) WHERE service.is_deleted != 1 ORDER BY service.service_id DESC;";
                                     $result_select = mysqli_query($conn, $sql_select);
                                     if(mysqli_num_rows($result_select) > 0){
                                         while($row_select = mysqli_fetch_assoc($result_select)){
                                             $service_id = $row_select['service_id'];
+                                            $category_id = $row_select['category_id'];
+                                            $category = $row_select['category'];
                                             $service = $row_select['service'];
                                             $description = $row_select['description'];
-                                            $date_added = $row_select['date_added'];
-                                            $last_updated = $row_select['last_updated'];
-                                            
+                                            $price = $row_select['price'];
+                                            $service_date_added = $row_select['date_added'];
+                                            $service_last_updated = $row_select['last_updated'];
                                 ?>
                                             <tr>
                                                 <td class="text-center"><?= $service_id ?></td>
+                                                <td class="text-center d-none"><?= $category_id ?></td>
+                                                <td class="text-center"><?= $category ?></td>
                                                 <td class="text-center"><?= $service ?></td>
                                                 <td class="text-center"><?= $description ?></td>
-                                                <td class="text-center"><?= $date_added ?></td>
-                                                <td class="text-center"><?= $last_updated ?></td>
+                                                <td class="text-center"><?= $price ?></td>
+                                                <td class="text-center"><?= $service_date_added ?></td>
+                                                <td class="text-center"><?= $service_last_updated ?></td>
                                                 <td class="text-center">
                                                     <a class="btn btn-sm btn-primary view" href="#" data-bs-toggle="modal" data-bs-target="#view_service_modal"><i class="fa-solid fa-eye"></i></a> 
                                                     <a class="btn btn-sm btn-success edit" href="#" data-bs-toggle="modal" data-bs-target="#edit_service_modal"><i class="fa-solid fa-pen-to-square"></i></a>  
@@ -213,12 +250,16 @@
                                         <div class="row">
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_service" class="ps-2 pb-2">Service</label>
-                                                    <input type="text" class="form-control" name="view_service" id="view_service" value="" disabled>
+                                                    <label for="view_category" class="ps-2 pb-2">Category</label>
+                                                    <input type="text" class="form-control" name="view_category" id="view_category" value="" disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
+                                                <div class="form-group">
+                                                    <label for="view_service" class="ps-2 pb-2">Service</label>
+                                                    <input type="text" class="form-control" name="view_service" id="view_service" value="" disabled>
+                                                </div>
                                             </div>
                                             
                                             <div class="col-md-12 col-6 mt-3">
@@ -229,18 +270,28 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-md-6 col-6 mt-3">
+                                            
+                                            <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_date_added" class="ps-2 pb-2">Date added</label>
-                                                    <input type="text" class="form-control" name="view_date_added" id="view_date_added" value="" disabled>
+                                                    <label for="view_price" class="ps-2 pb-2">Price</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">₱</span>
+                                                        <input type="text" class="form-control" name="view_price" id="view_price" placeholder="" aria-label="" aria-describedby="basic-addon1" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_last_updated" class="ps-2 pb-2">Last updated</label>
-                                                    <input type="text" class="form-control" name="view_last_updated" id="view_last_updated" value="" disabled>
+                                                    <label for="view_service_date_added" class="ps-2 pb-2">Date added</label>
+                                                    <input type="text" class="form-control" name="view_service_date_added" id="view_service_date_added" value="" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-6 mt-3">
+                                                <div class="form-group">
+                                                    <label for="view_service_last_updated" class="ps-2 pb-2">Last updated</label>
+                                                    <input type="text" class="form-control" name="view_service_last_updated" id="view_service_last_updated" value="" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -314,6 +365,16 @@
                                                     <label for="edit_description" class="ps-2 pb-2">Service description</label>
                                                     <div class="form-floating">
                                                         <textarea class="form-control pt-1" placeholder="Leave a comment here" id="edit_description" style="height: 100px" name="edit_description"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 col-6 mt-3">
+                                                <div class="form-group">
+                                                    <label for="edit_price" class="ps-2 pb-2">Price</label>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">₱</span>
+                                                        <input type="text" class="form-control" name="edit_price" id="edit_price" placeholder="" aria-label="" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -397,7 +458,6 @@
         </div>
     </div>
     <!-- end of delete service modal -->
-
     <?php
         require_once 'footer.php';
     ?>
