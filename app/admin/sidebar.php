@@ -73,6 +73,12 @@
                         echo '<li class="active"><a href="appointment.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-regular fa-calendar-days"></i></i> Appointments</a></li>';
                     }
 
+                    if($url !== 'localhost/pet-clinic-booking-system/app/admin/category.php'){
+                        echo '<li class=""><a href="category.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-dog"></i> Categories</a></li>';
+                    }else{
+                        echo '<li class="active"><a href="category.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-dog"></i> Categories</a></li>';
+                    }
+
                     if($url !== 'localhost/pet-clinic-booking-system/app/admin/service.php'){
                         echo '<li class=""><a href="service.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-syringe"></i> Services</a></li>';
                     }else{
