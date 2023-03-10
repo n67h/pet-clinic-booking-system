@@ -102,7 +102,7 @@
     </script>
     <!-- end of script for edit user modal -->
 
-    <!-- start of script for delete service modal -->
+    <!-- start of script for delete user modal -->
     <script>
         $(document).ready(function () {
 
@@ -123,7 +123,77 @@
             });
         });
     </script>
-    <!-- end of script for delete service modal -->
+    <!-- end of script for delete user modal -->
+
+    <!-- start of script for view category modal -->
+    <script>
+        $(document).ready(function () {
+            // $('body').on('click', '.edit', function(event) {
+            $('body').on('click', '.view', function(event) {
+
+                $('#view_category_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#view_category_id').val(data[0])
+                $('#view_category').val(data[1]);
+                $('#view_category_date_added').val(data[2]);
+                $('#view_category_last_updated').val(data[3]);
+            });
+        });
+    </script>
+    <!-- end of script for view category modal -->
+    
+    <!-- start of script for edit category modal -->
+    <script>
+        $(document).ready(function () {
+            // $('body').on('click', '.edit', function(event) {
+            $('body').on('click', '.edit', function(event) {
+
+                $('#edit_category_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#edit_category_id').val(data[0])
+                $('#edit_category').val(data[1]);
+            });
+        });
+    </script>
+    <!-- end of script for edit category modal -->
+
+    <!-- start of script for delete category modal -->
+    <script>
+        $(document).ready(function () {
+
+            $('body').on('click', '.delete', function(event) {
+
+                $('#delete_category_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#delete_category_id').val(data[0]);
+            });
+        });
+    </script>
+    <!-- end of script for delete category modal -->
 
     <!-- start of script for view service modal -->
     <script>
@@ -141,13 +211,14 @@
 
                 console.log(data);
 
-                $('#view_service_id').val(data[0])
-                $('#view_service').val(data[1]);
-                $('#view_description').val(data[2]);
-                $('#view_date_added').val(data[3]);
-                $('#view_last_updated').val(data[4]);
-                
-                
+                $('#view_service_id').val(data[0]);
+                $('#view_category_id').val(data[1]);
+                $('#view_category').val(data[2]);
+                $('#view_service').val(data[3]);
+                $('#view_description').val(data[4]);
+                $('#view_price').val(data[5]);
+                $('#view_service_date_added').val(data[6]);
+                $('#view_service_last_updated').val(data[7]);
             });
         });
     </script>
@@ -169,10 +240,12 @@
 
                 console.log(data);
 
-                $('#edit_service_id').val(data[0])
-                $('#edit_service').val(data[1]);
-                $('#edit_description').val(data[2]);
-                
+                $('#edit_service_id').val(data[0]);
+                $('#edit_category_id').val(data[1]);
+                $('#edit_category').val(data[2]);
+                $('#edit_service').val(data[3]);
+                $('#edit_description').val(data[4]);
+                $('#edit_price').val(data[5]);
             });
         });
     </script>
