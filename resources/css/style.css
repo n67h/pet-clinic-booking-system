@@ -192,3 +192,14 @@ body {
     color: #f48024;
 }
 /*====================END OF FOOTER====================*/
+
+
+
+
+/*====================START OF ADMIN SERVICE====================*/
+#add_price::-webkit-outer-spin-button,
+#add_price::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/*====================END OF ADMIN SERVICE====================*/
