@@ -163,13 +163,55 @@
                                             </div>
                                         </div>
 
+                                        <h4 class="ps-4">Pet details</h4>
+                                        <hr class="ms-3" style="width: 96%;">
+
+                                        
+                                        <div class="col-md-6 col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="pet_name" class="ps-2 pb-2">Name of pet</label>
+                                                <input type="text" class="form-control" name="pet_name" id="pet_name" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="species" class="ps-2 pb-2">Species</label>
+                                                <select class="form-select" aria-label="Default select example" name="species" id="species" required>
+                                                    <option selected disabled>-- Select species --</option>
+                                                    <option value="Dog">Dog</option>
+                                                    <option value="Cat">Cat</option>
+                                                    <option value="Dinosaur">Dinosaur</option>
+                                                    <option value="Bird">Bird</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="birthdate" class="ps-2 pb-2">Birthdate</label>
+                                                <input type="date" class="form-control" name="birthdate" id="birthdate" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 mt-3 mb-5">
+                                            <div class="form-group">
+                                                <label for="gender" class="ps-2 pb-2">Gender</label>
+                                                <select class="form-select" aria-label="Default select example" name="gender" id="gender" required>
+                                                    <option selected disabled>-- Select gender --</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <h4 class="ps-4">Appointment details</h4>
                                         <hr class="ms-3" style="width: 96%;">
 
-                                        <div class="col-md-6 col-6">
+                                        <div class="col-md-12 col-6">
                                             <div class="form-group">
-                                                <label for="add_user_role" class="ps-2 pb-2">Services</label>
-                                                <select class="form-select" aria-label="Default select example" name="add_user_role" id="add_user_role" required>
+                                                <label for="service" class="ps-2 pb-2">Services</label>
+                                                <select class="form-select" aria-label="Default select example" name="service" id="service" required>
                                                     <option selected disabled>-- Select service --</option>
                                                     <?php
                                                         $sql_service = "SELECT * FROM service WHERE is_deleted != 1;";
@@ -180,12 +222,63 @@
                                                                 $service = $row_service['service'];
                                                     ?>
                                                                 <option value="<?= $service_id; ?>"><?= $service; ?></option>
-                                                                
                                                     <?php
                                                             }
                                                         }
                                                     ?>
-                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="date" class="ps-2 pb-2">Appointment date</label>
+                                                <input type="date" class="form-control" name="date" id="date" value="<?= $date; ?>" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="timeslot" class="ps-2 pb-2">Timeslot</label>
+                                                <select class="form-select" aria-label="Default select example" name="timeslot" id="timeslot" required>
+                                                    <option selected disabled>-- Select timeslot --</option>
+                                                    <?php
+                                                        $sql = "SELECT timeslot FROM appointment WHERE is_deleted != 1 AND date = '$date' ORDER BY timeslot ASC;";
+                                                        $result = mysqli_query($conn, $sql);
+                                                        if(mysqli_num_rows($result) > 0){
+                                                            while($row = mysqli_fetch_assoc($result)){
+                                                                $timeslot = $row['timeslot'];
+
+                                                                // if($timeslot[0] == '8:00AM - 9:00AM'){
+                                                                //     echo '<option value="' .$timeslot. '" disabled>' .$timeslot. ' - Already booked</option>';
+                                                                // }elseif($timeslot[0] !== '8:00AM - 9:00AM'){
+                                                                //     echo '<option value="' .$timeslot. '" disabled>' .$timeslot. '</option>';
+                                                                // }elseif($timeslot[1] == '9:00AM - 10:00AM'){
+                                                                //     echo '<option value="' .$timeslot. '" disabled>' .$timeslot. ' - Already booked</option>';
+                                                                // }else{
+                                                                //     echo '<option value="9:00AM - 10:00AM">9:00AM - 10:00AM</option>';
+                                                                // }
+                                                    ?>
+                                                                
+
+
+
+                                                                <option <?php if($timeslot !== "") echo "disabled"; ?> value="<?php echo $timeslot; ?>">
+                                                                <?php echo $timeslot; ?>
+                                                                </option>
+                                                    <?php
+                                                            }
+                                                        }
+                                                    ?>
+                                                        <!-- <option value="8:00AM - 9:00AM">8:00AM - 9:00AM</option>
+                                                        <option value="9:00AM - 10:00AM">9:00AM - 10:00AM</option>
+                                                        <option value="10:00AM - 11:00AM">10:00AM - 11:00AM</option>
+                                                        <option value="11:00AM - 12:00PM">11:00AM - 12:00PM</option>
+                                                        <option value="1:00PM - 2:00PM">1:00PM - 2:00PM</option>
+                                                        <option value="2:00PM - 3:00PM">2:00PM - 3:00PM</option>
+                                                        <option value="3:00PM - 4:00PM">3:00PM - 4:00PM</option>
+                                                        <option value="4:00PM - 5:00PM">4:00PM - 5:00PM</option> -->
+
                                                 </select>
                                             </div>
                                         </div>
@@ -194,23 +287,13 @@
                                     <!-- end of booking modal inner row -->
                                 </form>
                                 <!-- end of booking modal form -->
-                                <?php
-                                    $sql = "SELECT timeslot FROM appointment WHERE is_deleted != 1 AND date = '$date';";
-                                    $result = mysqli_query($conn, $sql);
-                                    if(mysqli_num_rows($result) > 0){
-                                        while($row = mysqli_fetch_assoc($result)){
-                                            $timeslot = $row['timeslot'];
-                                            echo $timeslot;
-                                        }
-                                    }
-                                ?>
-                                </form>
+                                
                             </div>
                             <!-- end of booking modal body -->
                             <!-- start of booking modal footer -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-primary">Book</button>
                             </div>
                             <!-- end of booking modal footer -->
                         </div>
