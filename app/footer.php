@@ -53,16 +53,16 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
                     <p>
-                        <i class="fa-solid fa-envelope mr-3"></i> andrepaul.staclara67@gmail.com
+                        <i class="fa-solid fa-envelope mr-3"></i> testproject6767@gmail.com
                     </p>
                     <p>
-                        <i class="fa-solid fa-envelope mr-3"></i> andrepaulstaclara@gmail.com
+                        <i class="fa-solid fa-envelope mr-3"></i> testproject6767@gmail.com
                     </p>
                     <p>
-                        <i class="fa-solid fa-house mr-3"></i> 67 F. Bautista St., Barangay Paraiso, SFDM, Quezon City
+                        <i class="fa-solid fa-house mr-3"></i> Quezon City, Philippines
                     </p>
                     <p>
-                        <i class="fa-solid fa-mobile-screen mr-3"></i> +639298410728
+                        <i class="fa-solid fa-mobile-screen mr-3"></i> +63123456789
                     </p>
                     <!--<p>
                         <i class="fa-solid fa-phone mr-3"></i> Random Telephone
@@ -125,3 +125,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- jquery datatable js cdn -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
