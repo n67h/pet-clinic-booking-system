@@ -26,8 +26,8 @@
             <div class="carousel-item active">
                 <img src="../resources/images/dog2.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block text-dark">
-                    <h1>test</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quidem, mollitia nisi doloribus corporis aliquid provident cupiditate aperiam, dolorum nihil quisquam labore officia repellat qui fugiat, iste quaerat ea a?</p>
+                    <h1>Anti-rabies</h1>
+                    <p class="fs-2">Prevent them from acquiring the disease from wildlife, and thereby prevent possible transmission to your family or other people.</p>
                     <button type="button" class="btn btn-light btn-lg"><a class="nav-link text-dark ps-3" href="calendar.php">BOOK NOW</a></button>
                 </div>
             </div>
