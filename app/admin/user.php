@@ -533,8 +533,8 @@
                                         <div class="row">
                                             <div class="col-md-12 col-12 mt-3">
                                                 <div class="form-group">
-                                                    <input type="text" name="delete_user_id" id="delete_user_id" class="form-control mb-3">
-                                                    <h3>Are you sure you want to delete this data?</h3>
+                                                    <input type="hidden" name="delete_user_id" id="delete_user_id" class="form-control mb-3">
+                                                    <h3>Are you sure you want to delete this user?</h3>
                                                 </div>
                                             </div>
                                         </div>
