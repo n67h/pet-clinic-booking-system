@@ -273,5 +273,90 @@
         });
     </script>
     <!-- end of script for delete service modal -->
+
+    <!-- start of script for view appointment modal -->
+    <script>
+        $(document).ready(function () {
+            // $('body').on('click', '.edit', function(event) {
+            $('body').on('click', '.view', function(event) {
+
+                $('#view_appointment_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#view_appointment_id').val(data[0]);
+                $('#view_first_name').val(data[4]);
+                $('#view_last_name').val(data[5]);
+                $('#view_email').val(data[2]);
+                $('#view_phone_number').val(data[3]);
+                $('#view_pet_name').val(data[6]);
+                $('#view_category').val(data[7]);
+                $('#view_birthdate').val(data[8]);
+                $('#view_gender').val(data[9]);
+                $('#view_service').val(data[10]);
+                $('#view_date').val(data[11]);
+                $('#view_timeslot').val(data[12]);
+                $('#view_status').val(data[13]);
+                $('#view_appointment_date_added').val(data[14]);
+                $('#view_appointment_last_updated').val(data[15]);
+            });
+        });
+    </script>
+    <!-- end of script for view appointment modal -->
+
+    <!-- start of script for edit appointment modal -->
+    <script>
+        $(document).ready(function () {
+            // $('body').on('click', '.edit', function(event) {
+            $('body').on('click', '.edit', function(event) {
+
+                $('#edit_appointment_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#edit_appointment_id').val(data[0]);
+                $('#edit_service').val(data[10]);
+                $('#edit_date').val(data[11]);
+                $('#edit_timeslot').val(data[12]);
+                // $('#edit_status').val(data[13]);
+            });
+        });
+    </script>
+    <!-- end of script for edit appointment modal -->
+
+    <!-- start of script for delete appointment modal -->
+    <script>
+        $(document).ready(function () {
+
+            $('body').on('click', '.delete', function(event) {
+
+                $('#delete_appointment_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#delete_appointment_id').val(data[0]);
+
+            });
+        });
+    </script>
+    <!-- end of script for delete appointment modal -->
 </body>
 </html>
