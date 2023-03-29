@@ -2,6 +2,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- jquery datatable css cdn -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
     <!-- font-awesome cdn -->
     <script src="https://kit.fontawesome.com/3481525a72.js" crossorigin="anonymous"></script>
     <!-- latest bootstrap cdn -->
@@ -14,7 +16,7 @@
         $parts = parse_url($url);
         // get the 'account' folder path in url
         $path_parts= explode('/', $parts['path']);
-        $path = $path_parts[2];
+        $path = $path_parts[3];
         // check if the url is currently in account folder
         if($path !== 'account'){
             echo '<link rel="stylesheet" href="../resources/css/style.css">';
@@ -32,7 +34,14 @@
         <!-- start of navbar main container -->
         <div class="container-fluid">    
             <!-- start of navbar text logo -->
-            <a class="navbar-brand text-white" href="index.php"><span class="logo1">Veterinary</span> <span class="logo2">Clinic</span></a>
+            <?php
+                if($path !== 'account'){
+                    echo '<a class="navbar-brand text-white" href="index.php"><span class="logo1">Veterinary</span> <span class="logo2">Clinic</span></a>';
+                }else{
+                    echo '<a class="navbar-brand text-white" href="../index.php"><span class="logo1">Veterinary</span> <span class="logo2">Clinic</span></a>';
+                }
+            ?>
+            
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon navbar-dark"></span>
             </button>
@@ -43,21 +52,31 @@
                 <div class="mx-auto">
                     <!-- start of ul for nav links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item d-flex justify-content-end">
-                            <a class="nav-link active dropdown-item text-white link-info fs-5 text-center" aria-current="page" href="index.php">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="calendar.php">Book</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="index.php#services">Services</a>
-                        </li>
+                        <?php
+                            if($url !== 'localhost/pet-clinic-bookng-system/app/index.php'){
+                                if($path !== 'account'){
+                                    echo '<li class="nav-item d-flex justify-content-end"><a class="nav-link active dropdown-item text-white link-info fs-5 text-center" aria-current="page" href="index.php">Home</a></li>';
+                                }else{
+                                    echo '<li class="nav-item d-flex justify-content-end"><a class="nav-link active dropdown-item text-white link-info fs-5 text-center" aria-current="page" href="../index.php">Home</a></li>';
+                                }
+                            }
+                            if($url !== 'localhost/pet-clinic-bookng-system/app/index.php'){
+                                if($path !== 'account'){
+                                    echo '<li class="nav-item d-flex justify-content-end"><a class="nav-link active dropdown-item text-white link-info fs-5 text-center" aria-current="page" href="calendar.php">Book</a></li>';
+                                }else{
+                                    echo '<li class="nav-item d-flex justify-content-end"><a class="nav-link active dropdown-item text-white link-info fs-5 text-center" aria-current="page" href="../calendar.php">Book</a></li>';
+                                }
+                            }
+                            if($url !== 'localhost/pet-clinic-bookng-system/app/service.php'){
+                                if($path !== 'account'){
+                                    echo '<li class="nav-item"><a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="service.php">Services</a></li>';
+                                }else{
+                                    echo '<li class="nav-item"><a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="../service.php">Services</a></li>';
+                                }
+                            }
+                        ?>
                                         
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="#">Contact Us</a>
-                        </li>
+                        
                         <!-- <li class="nav-item">
                             <a class="nav-link dropdown-item text-white" href="#">About</a>
                         </li> -->
@@ -91,7 +110,6 @@
                                                     <a class="nav-link dropdown-toggle text-white link-info fs-5 text-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $first_name. ' ' .$last_name; ?></a>
                                                         <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                                                             <li><a href="account/profile.php" class="dropdown-item text-white link-info account">My Account</a></li>
-                                                            <li><a href="#" class="dropdown-item text-white link-info account">My Appointments</a></li>
                                                             <li><a href="includes/logout.inc.php" class="dropdown-item text-white link-info account">Log out</a></li>
                                             <?php
                                                 }else{
@@ -99,7 +117,6 @@
                                                     <a class="nav-link dropdown-toggle text-info link-info fs-5 text-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $first_name. ' ' .$last_name; ?></a>
                                                         <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                                                             <li><a href="profile.php" class="dropdown-item text-white link-info account">My Account</a></li>
-                                                            <li><a href="../purchase.php" class="dropdown-item text-white link-info account">My Purchase</a></li>
                                                             <li><a href="../includes/logout.inc.php" class="dropdown-item text-white link-info account">Log out</a></li>
                                             <?php
                                                 }
@@ -116,7 +133,7 @@
                 <!-- start of search bar -->
                 <form class="d-flex" role="search">
                     <input class="form-control me-0 rounded-0" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary rounded-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button class="btn btn-info rounded-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
                 <!-- end of search bar -->
             </div>
