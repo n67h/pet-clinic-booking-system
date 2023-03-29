@@ -13,7 +13,12 @@
             $timeslot_appointment = $row_appointment['timeslot'];
             
         }
-        $sql = "SELECT * FROM timeslot WHERE service_id = '" .$_POST['serviceID']. "' AND timeslot != '$timeslot_appointment' AND is_deleted != 1;";
+        $sql = "SELECT * FROM timeslot AS ts 
+        WHERE NOT EXISTS 
+        ( SELECT * FROM appointment AS a 
+        WHERE ts.timeslot = a.timeslot AND a.date = '$date')
+        AND ts.service_id = '" .$_POST['serviceID']. "' AND is_deleted != 1;";
+        
         $result = mysqli_query($conn, $sql);
         $output .= '<option value="default_time" disabled selected>-- Select timeslot --</option>';
         if(mysqli_num_rows($result) > 0){
@@ -34,9 +39,66 @@
                 //     }
                 // }
                 
+
+                // SELECT 
+                // timeslot.*
+                // FROM timeslot
+                // LEFT JOIN appointment ON (
+                // appointment.timeslot= timeslot.timeslot AND date = '2023-03-13'
+                // ) 
+                // WHERE timeslot.service_id = 1
+
+
+                // SELECT            a.*
+                // FROM              tbl_1 a
+                // NATURAL LEFT JOIN tbl_2 b
+                // WHERE             b.FirstName IS NULL
+
+                // SELECT *
+                // FROM Table1 AS a
+                // WHERE NOT EXISTS (
+                // SELECT *
+                // FROM Table2 AS b 
+                // WHERE a.FirstName=b.FirstName AND a.LastName=b.Last_Name
+                // )
+
+                // SELECT * FROM timeslot AS ts 
+                // WHERE NOT EXISTS 
+                // ( SELECT * FROM appointment AS a 
+                // WHERE ts.timeslot = a.timeslot AND a.date = "2023-03-13" AND ts.service_id = 1 AND a.service_id = 1);
+
+
+
+
+                // fuck yeah
+                //SELECT * FROM timeslot AS ts 
+                //WHERE NOT EXISTS 
+                //( SELECT * FROM appointment AS a 
+                //WHERE ts.timeslot = a.timeslot AND a.date = "2023-03-13" AND ts.service_id = 1)
+                //AND ts.service_id = 1 AND is_deleted != 1;
                 $output .= '<option value="' .$timeslot. '">' .$timeslot. '</option>';
             }
+        }else{
+            $output .= '<option value="default_time" disabled selected>-- Select timeslot --</option>';
+            $output .= '<option value="8:00AM - 9:00AM">8:00AM - 9:00AM</option>';
+            $output .= '<option value="9:00AM - 10:00AM">9:00AM - 10:00AM</option>';
+            $output .= '<option value="10:00AM - 11:00AM">10:00AM - 11:00AM</option>';
+            $output .= '<option value="11:00AM - 12:00PM">11:00AM - 12:00PM</option>';
+            $output .= '<option value="1:00PM - 2:00PM">1:00PM - 2:00PM</option>';
+            $output .= '<option value="2:00PM - 3:00PM">2:00PM - 3:00PM</option>';
+            $output .= '<option value="3:00PM - 4:00PM">3:00PM - 4:00PM</option>';
+            $output .= '<option value="4:00PM - 5:00PM">4:00PM - 5:00PM</option>';
         }
+    }else{
+        $output .= '<option value="default_time" disabled selected>-- Select timeslot --</option>';
+        $output .= '<option value="8:00AM - 9:00AM">8:00AM - 9:00AM</option>';
+        $output .= '<option value="9:00AM - 10:00AM">9:00AM - 10:00AM</option>';
+        $output .= '<option value="10:00AM - 11:00AM">10:00AM - 11:00AM</option>';
+        $output .= '<option value="11:00AM - 12:00PM">11:00AM - 12:00PM</option>';
+        $output .= '<option value="1:00PM - 2:00PM">1:00PM - 2:00PM</option>';
+        $output .= '<option value="2:00PM - 3:00PM">2:00PM - 3:00PM</option>';
+        $output .= '<option value="3:00PM - 4:00PM">3:00PM - 4:00PM</option>';
+        $output .= '<option value="4:00PM - 5:00PM">4:00PM - 5:00PM</option>';
     }
     
     
