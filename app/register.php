@@ -275,7 +275,7 @@
                             <!-- end of second row -->
                             <!-- start of third row -->
                             <div class="row mb-1">
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <div class="mb-3">
                                         <label for="phone_number" class="form-label fs-5 ps-2">Contact Number<span class="text-danger fs-5"><?= $phone_number_error; ?></span><span class="text-success fs-5"><?= $phone_number_success; ?></span></label>
                                         <input type="number" name="phone_number" class="form-control" id="phone_number" placeholder="09123456789" value="<?= $phone_number_value; ?>">
