@@ -1,9 +1,4 @@
 # pet-clinic-booking-system
-app dev project,
-WIP
+app dev project
 
-test
-
-test
-
-test
+WIP booking, overlapping schedule, dashboard statistics, category and services offered in web, some modals in admin side
