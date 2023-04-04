@@ -1,12 +1,6 @@
 Username: admin
 Password: admin
 
-Email: testproject6767@gmail.com
-Password: forprojectpurposesonly67
-
-SMTP Email: testproject6767@gmail.com
-SMTP Password: jexwzyjkymvxwxze
-
 CREATE TABLE user_role (
     user_role_id int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
     role varchar(255) NOT NULL,
