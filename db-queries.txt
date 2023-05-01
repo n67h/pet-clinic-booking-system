@@ -1,6 +1,8 @@
 Username: admin
 Password: admin
 
+git config --global user.email
+
 CREATE TABLE user_role (
     user_role_id int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
     role varchar(255) NOT NULL,
