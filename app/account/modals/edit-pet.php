@@ -16,7 +16,6 @@
             <form action="includes/edit-pet.inc.php?id=<?= $pet_id ?>" method="post" enctype="multipart/form-data">
                 <!-- start of edit modal body -->                
                 <div class="modal-body">
-                    <input type="text" name="edit_pet_id" id="edit_pet_id<?= $pet_id ?>" value="<?= $pet_id ?>">
                     <!-- start of edit modal row -->
                     <div class="row">
                         <!-- start of edit modal col -->
