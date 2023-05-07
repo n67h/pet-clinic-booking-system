@@ -181,7 +181,7 @@
                 <form action="" method="post">
                     <!-- start of view modal body -->                
                     <div class="modal-body">
-                        <input type="hidden" name="view_category_id" id="view_category_id">
+                        <input type="hidden" name="view_category_id" id="v_u_category_id">
                         <!-- start of view modal row -->
                         <div class="row">
                             <!-- start of view modal col -->
@@ -194,22 +194,22 @@
                                         <div class="row">
                                             <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_category" class="ps-2 pb-2">Category</label>
-                                                    <input type="text" class="form-control" name="view_category" id="view_category" value="" disabled>
+                                                    <label for="v_c_category_name" class="ps-2 pb-2">Category</label>
+                                                    <input type="text" class="form-control" name="view_category" id="v_c_category_name" value="" disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_category_date_added" class="ps-2 pb-2">Date added</label>
-                                                    <input type="text" class="form-control" name="view_category_date_added" id="view_category_date_added" value="" disabled>
+                                                    <label for="v_c_category_date_added" class="ps-2 pb-2">Date added</label>
+                                                    <input type="text" class="form-control" name="view_category_date_added" id="v_c_category_date_added" value="" disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3 mb-5">
                                                 <div class="form-group">
-                                                    <label for="view_category_last_updated" class="ps-2 pb-2">Last updated</label>
-                                                    <input type="text" class="form-control" name="view_category_last_updated" id="view_category_last_updated" value="" disabled>
+                                                    <label for="v_c_category_last_updated" class="ps-2 pb-2">Last updated</label>
+                                                    <input type="text" class="form-control" name="view_category_last_updated" id="v_c_category_last_updated" value="" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -256,7 +256,7 @@
                 <form action="includes/edit-category.inc.php" method="post">
                     <!-- start of edit modal body -->                
                     <div class="modal-body">
-                        <input type="hidden" name="edit_category_id" id="edit_category_id">
+                        <input type="hidden" name="edit_category_id" id="e_c_category_id">
                         <!-- start of edit modal row -->
                         <div class="row">
                             <!-- start of edit modal col -->
@@ -269,8 +269,8 @@
                                         <div class="row">
                                             <div class="col-md-12 col-6 mt-3 mb-5">
                                                 <div class="form-group">
-                                                    <label for="edit_category" class="ps-2 pb-2">Category</label>
-                                                    <input type="text" class="form-control" name="edit_category" id="edit_category" value="" required>
+                                                    <label for="e_c_category_name" class="ps-2 pb-2">Category</label>
+                                                    <input type="text" class="form-control" name="edit_category" id="e_c_category_name" value="" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -353,5 +353,5 @@
     </div>
     <!-- end of delete category modal -->
     <?php
-        require_once 'footer.php';
+        require_once 'scripts.php';
     ?>
