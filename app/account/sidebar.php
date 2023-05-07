@@ -48,6 +48,11 @@
                                 }else{
                                     echo '<li class=""><a href="profile.php" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark bg-info rounded"> Profile</a></li>';
                                 }
+                                if($url !== 'localhost/pet-clinic-booking-system/app/account/pet.php'){
+                                    echo '<li class=""><a href="pet.php" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark"> My Pets</a></li>';
+                                }else{
+                                    echo '<li class=""><a href="pet.php" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark bg-info rounded"> My Pets</a></li>';
+                                }
 
                                 if($url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php'){
                                     echo '<li class=""><a href="appointment.php" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark"> Appointments</a></li>';
