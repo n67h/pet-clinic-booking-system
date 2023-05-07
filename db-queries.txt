@@ -87,7 +87,7 @@ CREATE TABLE pet (
     category_id int(11),
     pet_name varchar(255) NOT NULL,
     birthdate date NOT NULL,
-    gender tinyint NOT NULL,
+    gender varchar(255) NOT NULL,
     pet_image varchar(255) NOT NULL,
     is_deleted tinyint NOT NULL DEFAULT 0,
     date_added timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -120,5 +120,4 @@ SELECT category.category_id, category.category, appointment.appointment_id, appo
 
 SELECT user_info.user_id, user_info.email, user_info.phone_number, user_info.first_name, user_info.last_name, category.category_id, category.category, appointment.appointment_id, appointment.pet_name, appointment.category_id, appointment.birthdate, appointment.gender, appointment.service_id, appointment.date, appointment.timeslot, appointment.status, appointment.date_added, appointment.last_updated, service.service_id, service.service FROM category INNER JOIN appointment USING (category_id) INNER JOIN service USING (service_id) INNER JOIN user_info USING (user_id) WHERE appointment.is_deleted != 1 ORDER BY appointment.appointment_id DESC
 
-
-
+SELECT category.category_id, category.category, pet.* FROM category INNER JOIN pet USING (category_id) WHERE pet.is_deleted != 1 AND pet.user_id = 1 ORDER BY pet.pet_id DESC;
