@@ -429,5 +429,5 @@
     </div>
     <!-- end of delete appointment modal -->
     <?php
-        require_once 'footer.php';
+        require_once 'scripts.php';
     ?>
