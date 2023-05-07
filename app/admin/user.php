@@ -203,7 +203,7 @@
                                 <!-- start of table body -->
                                 <tbody>
                                 <?php
-                                    $sql_select = "SELECT user_role.user_role_id, user_role.role, user.user_id, user.user_role_id, user.username, user.is_verified, user.last_login, user.date_added AS user_date_added, user.last_updated AS user_last_updated, user_info.user_info_id, user_info.user_id, user_info.email, user_info.phone_number, user_info.first_name, user_info.last_name, user_info.date_added AS user_info_date_added, user_info.last_updated AS user_info_last_updated FROM user_info INNER JOIN user USING (user_id) INNER JOIN user_role USING (user_role_id) WHERE user.is_deleted != 1;";
+                                    $sql_select = "SELECT user_role.user_role_id, user_role.role, user.user_id, user.user_role_id, user.username, user.is_verified, user.last_login, user.date_added AS user_date_added, user.last_updated AS user_last_updated, user_info.user_info_id, user_info.user_id, user_info.email, user_info.phone_number, user_info.first_name, user_info.last_name, user_info.date_added AS user_info_date_added, user_info.last_updated AS user_info_last_updated FROM user_info INNER JOIN user USING (user_id) INNER JOIN user_role USING (user_role_id) WHERE user.is_deleted != 1 ORDER BY user.user_id DESC;";
                                     $result_select = mysqli_query($conn, $sql_select);
                                     if(mysqli_num_rows($result_select) > 0){
                                         while($row_select = mysqli_fetch_assoc($result_select)){
@@ -311,8 +311,8 @@
                                         <div class="row">
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_user_id" class="ps-2 pb-2">User ID</label>
-                                                    <input type="text" class="form-control" name="view_user_id" id="view_user_id" value="" required disabled>
+                                                    <label for="v_u_user_id" class="ps-2 pb-2">User ID</label>
+                                                    <input type="text" class="form-control" name="view_user_id" id="v_u_user_id" value="" required disabled>
                                                 </div>
                                             </div>
 
@@ -321,71 +321,71 @@
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_user_role" class="ps-2 pb-2">User role</label>
-                                                    <input type="text" class="form-control" name="view_user_role" id="view_user_role" value="" required disabled>
+                                                    <label for="v_u_user_role" class="ps-2 pb-2">User role</label>
+                                                    <input type="text" class="form-control" name="view_user_role" id="v_u_user_role" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_username" class="ps-2 pb-2">Username</label>
-                                                    <input type="text" class="form-control" name="view_username" id="view_username" value="" required disabled>
+                                                    <label for="v_u_username" class="ps-2 pb-2">Username</label>
+                                                    <input type="text" class="form-control" name="view_username" id="v_u_username" value="" required disabled>
                                                 </div>
                                             </div>
                                            
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_first_name" class="ps-2 pb-2">First name</label>
-                                                    <input type="text" class="form-control" name="view_first_name" id="view_first_name" value="" required disabled>
+                                                    <label for="v_u_first_name" class="ps-2 pb-2">First name</label>
+                                                    <input type="text" class="form-control" name="view_first_name" id="v_u_first_name" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_last_name" class="ps-2 pb-2">Last name</label>
-                                                    <input type="text" class="form-control" name="view_last_name" id="view_last_name" value="" required disabled>
+                                                    <label for="v_u_last_name" class="ps-2 pb-2">Last name</label>
+                                                    <input type="text" class="form-control" name="view_last_name" id="v_u_last_name" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_email" class="ps-2 pb-2">Email</label>
-                                                    <input type="text" class="form-control" name="view_email" id="view_email" value="" required disabled>
+                                                    <label for="v_u_email" class="ps-2 pb-2">Email</label>
+                                                    <input type="text" class="form-control" name="view_email" id="v_u_email" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_phone_number" class="ps-2 pb-2">Phone number</label>
-                                                    <input type="text" class="form-control" name="view_phone_number" id="view_phone_number" value="" required disabled>
+                                                    <label for="v_u_phone_number" class="ps-2 pb-2">Phone number</label>
+                                                    <input type="text" class="form-control" name="view_phone_number" id="v_u_phone_number" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_is_verified" class="ps-2 pb-2">Status</label>
-                                                    <input type="text" class="form-control" name="view_is_verified" id="view_is_verified" value="" required disabled>
+                                                    <label for="v_u_is_verified" class="ps-2 pb-2">Status</label>
+                                                    <input type="text" class="form-control" name="view_is_verified" id="v_u_is_verified" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_last_login" class="ps-2 pb-2">Last login</label>
-                                                    <input type="text" class="form-control" name="view_last_login" id="view_last_login" value="" required disabled>
+                                                    <label for="v_u_last_login" class="ps-2 pb-2">Last login</label>
+                                                    <input type="text" class="form-control" name="view_last_login" id="v_u_last_login" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_user_date_added" class="ps-2 pb-2">Date added</label>
-                                                    <input type="text" class="form-control" name="view_user_date_added" id="view_user_date_added" value="" required disabled>
+                                                    <label for="v_u_user_date_added" class="ps-2 pb-2">Date added</label>
+                                                    <input type="text" class="form-control" name="view_user_date_added" id="v_u_user_date_added" value="" required disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_user_info_last_updated" class="ps-2 pb-2">Last updated</label>
-                                                    <input type="text" class="form-control" name="view_user_info_last_updated" id="view_user_info_last_updated" value="" required disabled>
+                                                    <label for="v_u_user_info_last_updated" class="ps-2 pb-2">Last updated</label>
+                                                    <input type="text" class="form-control" name="view_user_info_last_updated" id="v_u_user_info_last_updated" value="" required disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -444,44 +444,45 @@
                                         <!-- start of edit modal row -->
                                         <div class="row">
                                             <!-- <label for="edit_user_id" class="ps-2 pb-2">User ID</label> -->
-                                            <input type="hidden" class="form-control" name="edit_user_id" id="edit_user_id" value="" required>
+                                            <input type="hidden" class="form-control" name="edit_user_id" id="e_u_user_id" value="" required>
                                             <!-- <label for="edit_user_role" class="ps-2 pb-2">User role</label> -->
-                                            <input type="hidden" class="form-control" name="edit_user_role" id="edit_user_role" value="" required>
+                                            <input type="hidden" class="form-control" name="edit_user_role" id="e_u_user_role" value="" required>
                                            
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_first_name" class="ps-2 pb-2">First name</label>
-                                                    <input type="text" class="form-control" name="edit_first_name" id="edit_first_name" value="" required>
+                                                    <label for="e_u_first_name" class="ps-2 pb-2">First name</label>
+                                                    <input type="text" class="form-control" name="edit_first_name" id="e_u_first_name" value="" required>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_last_name" class="ps-2 pb-2">Last name</label>
-                                                    <input type="text" class="form-control" name="edit_last_name" id="edit_last_name" value="" required>
+                                                    <label for="e_u_last_name" class="ps-2 pb-2">Last name</label>
+                                                    <input type="text" class="form-control" name="edit_last_name" id="e_u_last_name" value="" required>
                                                 </div>
                                             </div>
                                             
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_username" class="ps-2 pb-2">Username</label>
-                                                    <input type="text" class="form-control" name="edit_username" id="edit_username" value="" required>
+                                                    <label for="e_u_username" class="ps-2 pb-2">Username</label>
+                                                    <input type="text" class="form-control" name="edit_username" id="e_u_username" value="" required>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_email" class="ps-2 pb-2">Email</label>
-                                                    <input type="text" class="form-control" name="edit_email" id="edit_email" value="">
+                                                    <label for="e_u_email" class="ps-2 pb-2">Email</label>
+                                                    <input type="text" class="form-control" name="edit_email" id="e_u_email" value="">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_phone_number" class="ps-2 pb-2">Phone number</label>
-                                                    <input type="text" class="form-control" name="edit_phone_number" id="edit_phone_number" value="">
+                                                    <label for="e_u_phone_number" class="ps-2 pb-2">Phone number</label>
+                                                    <input type="text" class="form-control" name="edit_phone_number" id="e_u_phone_number" value="">
                                                 </div>
-                                            </div>
+                                            </div>                          
+
                                         </div>
                                         <!-- end of edit modal row -->
                                     </div>
@@ -562,5 +563,5 @@
     </div>
     <!-- end of delete user modal -->
     <?php
-        require_once 'footer.php';
+        require_once 'scripts.php';
     ?>
