@@ -3,11 +3,11 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete category</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete pet</h1>
                 <button type="button" class="btn btn-danger close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span></button>
             </div>
             <!-- start of delete modal form -->
-            <form action="includes/delete-category.inc.php" method="post">
+            <!-- <form action="includes/delete-category.inc.php" method="post"> -->
                 <!-- start of delete modal body -->                
                 <div class="modal-body">
                     <!-- start of delete modal row -->
@@ -23,7 +23,7 @@
                                         <div class="col-md-12 col-12 mt-3">
                                             <div class="form-group">
                                                 <input type="hidden" name="delete_category_id" id="delete_category_id" class="form-control mb-3">
-                                                <h3>Are you sure you want to delete this category?</h3>
+                                                <h3>Are you sure you want to delete this pet?</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -32,8 +32,8 @@
                                 <!-- end of delete modal card body -->
                                 <!-- start of delete modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">No</button>
-                                    <button type="submit" name="delete" class="btn btn-danger btn-lg">Yes</button>
+                                    <button type="button" class="btn btn-secondary btn-lg text-dark" data-bs-dismiss="modal">No</button>
+                                    <button type="button" name="delete" class="btn btn-danger btn-lg"><a href="includes/delete-pet.inc.php?id=<?= $pet_id ?>" class="text-decoration-none text-dark">Yes</a></button>
                                 </div>
                                 <!-- end of delete modal footer -->
                             </div>
@@ -44,7 +44,7 @@
                     <!-- end of delete modal row -->
                 </div>
                 <!-- end of delete modal body -->                
-            </form>
+            <!-- </form> -->
             <!-- end of delete modal form -->
         </div>
     </div>
