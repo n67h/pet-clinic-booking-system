@@ -250,48 +250,55 @@
                                         <div class="row">
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_category" class="ps-2 pb-2">Category</label>
-                                                    <input type="text" class="form-control" name="view_category" id="view_category" value="" disabled>
+                                                
+<!-- v_s_category_id -->
+
+
+
+
+
+                                                    <label for="v_s_category" class="ps-2 pb-2">Category</label>
+                                                    <input type="text" class="form-control" name="view_category" id="v_s_category" value="" disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_service" class="ps-2 pb-2">Service</label>
-                                                    <input type="text" class="form-control" name="view_service" id="view_service" value="" disabled>
+                                                    <label for="v_s_service" class="ps-2 pb-2">Service</label>
+                                                    <input type="text" class="form-control" name="view_service" id="v_s_service" value="" disabled>
                                                 </div>
                                             </div>
                                             
                                             <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_description" class="ps-2 pb-2">Service description</label>
+                                                    <label for="v_s_description" class="ps-2 pb-2">Service description</label>
                                                     <div class="form-floating">
-                                                        <textarea class="form-control p-3" placeholder="Leave a comment here" id="view_description" style="height: 100px" name="view_description" disabled></textarea>
+                                                        <textarea class="form-control p-3" placeholder="Leave a comment here" id="v_s_description" style="height: 100px" name="view_description" disabled></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_price" class="ps-2 pb-2">Price</label>
+                                                    <label for="v_s_price" class="ps-2 pb-2">Price</label>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">₱</span>
-                                                        <input type="text" class="form-control" name="view_price" id="view_price" placeholder="" aria-label="" aria-describedby="basic-addon1" disabled>
+                                                        <input type="text" class="form-control" name="view_price" id="v_s_price" placeholder="" aria-label="" aria-describedby="basic-addon1" disabled>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_service_date_added" class="ps-2 pb-2">Date added</label>
-                                                    <input type="text" class="form-control" name="view_service_date_added" id="view_service_date_added" value="" disabled>
+                                                    <label for="v_s_service_date_added" class="ps-2 pb-2">Date added</label>
+                                                    <input type="text" class="form-control" name="view_service_date_added" id="v_s_service_date_added" value="" disabled>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="view_service_last_updated" class="ps-2 pb-2">Last updated</label>
-                                                    <input type="text" class="form-control" name="view_service_last_updated" id="view_service_last_updated" value="" disabled>
+                                                    <label for="v_s_service_last_updated" class="ps-2 pb-2">Last updated</label>
+                                                    <input type="text" class="form-control" name="view_service_last_updated" id="v_s_service_last_updated" value="" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -339,7 +346,7 @@
                 <form action="includes/edit-service.inc.php" method="post">
                     <!-- start of edit modal body -->                
                     <div class="modal-body">
-                        <input type="hidden" name="edit_service_id" id="edit_service_id">
+                        <input type="hidden" name="edit_service_id" id="e_s_service_id">
                         <!-- start of edit modal row -->
                         <div class="row">
                             <!-- start of edit modal col -->
@@ -352,8 +359,8 @@
                                         <div class="row">
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_service" class="ps-2 pb-2">Service</label>
-                                                    <input type="text" class="form-control" name="edit_service" id="edit_service" value="" required>
+                                                    <label for="e_s_service_name" class="ps-2 pb-2">Service</label>
+                                                    <input type="text" class="form-control" name="edit_service" id="e_s_service_name" value="" required>
                                                 </div>
                                             </div>
 
@@ -362,19 +369,19 @@
                                             
                                             <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_description" class="ps-2 pb-2">Service description</label>
+                                                    <label for="e_s_description" class="ps-2 pb-2">Service description</label>
                                                     <div class="form-floating">
-                                                        <textarea class="form-control pt-1" placeholder="Leave a comment here" id="edit_description" style="height: 100px" name="edit_description"></textarea>
+                                                        <textarea class="form-control pt-1" placeholder="Leave a comment here" id="e_s_description" style="height: 100px" name="edit_description"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <label for="edit_price" class="ps-2 pb-2">Price</label>
+                                                    <label for="e_s_price" class="ps-2 pb-2">Price</label>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">₱</span>
-                                                        <input type="text" class="form-control" name="edit_price" id="edit_price" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                                        <input type="text" class="form-control" name="edit_price" id="e_s_price" placeholder="" aria-label="" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -459,5 +466,5 @@
     </div>
     <!-- end of delete service modal -->
     <?php
-        require_once 'footer.php';
+        require_once 'scripts.php';
     ?>
