@@ -146,8 +146,8 @@
                                                                 <div class="form-group">
                                                                     <label for="add_gender" class="ps-2 pb-2">Species</label>
                                                                     <select class="form-select" aria-label="Default select example" name="add_gender" id="add_gender" required>
-                                                                            <option value="1" selected>Male</option>;
-                                                                            <option value="2">Female</option>;
+                                                                            <option value="Male" selected>Male</option>;
+                                                                            <option value="Female">Female</option>;
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -158,7 +158,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <!-- end of add modal row -->
                                                     </div>
                                                     <!-- end of add modal card body -->
@@ -193,24 +192,50 @@
                         <!-- start of inner div for pet -->
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="../pet-images/default.png" class="img-fluid rounded-start p-3" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-dark">Name:  <span class="fs-4 text-dark"><u>Bogart</u></span></h5>
-                                        <h5 class="card-title text-dark">Category:  <span class="fs-4 text-dark"><u>Dogs</u></span></h5>
-                                        <h5 class="card-title text-dark">Gender:  <span class="fs-4 text-dark"><u>Male</u></span></h5>
-                                        <h5 class="card-title text-dark">Birthdate:  <span class="fs-4 text-dark"><u>09/01/2022</u></span></h5>
-                                        <div class="container mt-3 mb-0 ms-0 ps-0">
-                                            <button type="button" class="btn btn-success"><i class="fa-solid fa-file-pen"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-dark">
-                                    <hr class="mx-6">
-                                </div>
+                                <?php
+                                    $sql_select = "SELECT category.category_id, category.category, pet.* FROM category INNER JOIN pet USING (category_id) WHERE pet.is_deleted != 1 AND pet.user_id = $user_id_session ORDER BY pet.pet_id DESC;";
+                                    $result_select = mysqli_query($conn, $sql_select);
+                                    if(mysqli_num_rows($result_select) > 0){
+                                        while($row_select = mysqli_fetch_assoc($result_select)){
+                                            $category = $row_select['category'];
+                                            $pet_id = $row_select['pet_id'];
+                                            $pet_name = $row_select['pet_name'];
+                                            $birthdate = $row_select['birthdate'];
+                                            $gender = $row_select['gender'];
+                                            $pet_image = $row_select['pet_image'];
+                                ?>
+
+                                            <div class="col-md-4">
+                                                <img src="../pet-images/<?= $pet_image ?>" class="img-fluid rounded-start p-3" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title text-dark">Name:  <span class="fs-4 text-dark"><u><?= $pet_name ?></u></span></h5>
+                                                    <h5 class="card-title text-dark">Category:  <span class="fs-4 text-dark"><u><?= $category ?></u></span></h5>
+                                                    <h5 class="card-title text-dark">Gender:  <span class="fs-4 text-dark"><u><?= $gender ?></u></span></h5>
+                                                    <h5 class="card-title text-dark">Birthdate:  <span class="fs-4 text-dark"><u><?= $birthdate ?></u></span></h5>
+                                                    <div class="container mt-3 mb-0 ms-0 ps-0">
+                                                        <a class="btn btn-success edit" href="#" data-bs-toggle="modal" data-bs-target="#edit_pet<?= $pet_id ?>">Edit details <i class="fa-solid fa-file-pen"></i></a>  
+                                                        <?php
+                                                            include 'modals/edit-pet.php';
+                                                        ?>
+
+                                                        <a class="btn btn-danger edit" href="#" data-bs-toggle="modal" data-bs-target="#delete_pet<?= $pet_id ?>">Remove <i class="fa-solid fa-trash"></i></a>
+                                                        <?php
+                                                            include 'modals/delete-pet.php';
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-dark">
+                                                <hr class="mx-6">
+                                            </div>
+                                <?php
+                                        }
+                                    }else{
+                                        echo '<h5 class="text-dark">You haven\'t added any pet yet.</h5>';
+                                    }
+                                ?>
                             </div>
                         </div>
                         <!-- end of inner div for pet -->
