@@ -56,17 +56,17 @@
 
                 console.log(data);
 
-                $('#view_user_id').val(data[1])
-                $('#view_user_role').val(data[2]);
-                $('#view_username').val(data[3]);
-                $('#view_first_name').val(data[4]);
-                $('#view_last_name').val(data[5]);
-                $('#view_email').val(data[6]);
-                $('#view_phone_number').val(data[7]);
-                $('#view_is_verified').val(data[8]);
-                $('#view_last_login').val(data[9]);
-                $('#view_user_date_added').val(data[10]);
-                $('#view_user_info_last_updated').val(data[13]);
+                $('#v_u_user_id').val(data[1])
+                $('#v_u_user_role').val(data[2]);
+                $('#v_u_username').val(data[3]);
+                $('#v_u_first_name').val(data[4]);
+                $('#v_u_last_name').val(data[5]);
+                $('#v_u_email').val(data[6]);
+                $('#v_u_phone_number').val(data[7]);
+                $('#v_u_is_verified').val(data[8]);
+                $('#v_u_last_login').val(data[9]);
+                $('#v_u_user_date_added').val(data[10]);
+                $('#v_u_user_info_last_updated').val(data[13]);
                 
             });
         });
@@ -89,13 +89,13 @@
 
                 console.log(data);
 
-                $('#edit_user_id').val(data[1])
-                $('#edit_user_role').val(data[2]);
-                $('#edit_username').val(data[3]);
-                $('#edit_first_name').val(data[4]);
-                $('#edit_last_name').val(data[5]);
-                $('#edit_email').val(data[6]);
-                $('#edit_phone_number').val(data[7]);
+                $('#e_u_user_id').val(data[1])
+                $('#e_u_user_role').val(data[2]);
+                $('#e_u_username').val(data[3]);
+                $('#e_u_first_name').val(data[4]);
+                $('#e_u_last_name').val(data[5]);
+                $('#e_u_email').val(data[6]);
+                $('#e_u_phone_number').val(data[7]);
 
             });
         });
@@ -141,10 +141,10 @@
 
                 console.log(data);
 
-                $('#view_category_id').val(data[0])
-                $('#view_category').val(data[1]);
-                $('#view_category_date_added').val(data[2]);
-                $('#view_category_last_updated').val(data[3]);
+                $('#v_c_category_id').val(data[0])
+                $('#v_c_category_name').val(data[1]);
+                $('#v_c_category_date_added').val(data[2]);
+                $('#v_c_category_last_updated').val(data[3]);
             });
         });
     </script>
@@ -166,8 +166,8 @@
 
                 console.log(data);
 
-                $('#edit_category_id').val(data[0])
-                $('#edit_category').val(data[1]);
+                $('#e_c_category_id').val(data[0])
+                $('#e_c_category_name').val(data[1]);
             });
         });
     </script>
@@ -211,14 +211,14 @@
 
                 console.log(data);
 
-                $('#view_service_id').val(data[0]);
-                $('#view_category_id').val(data[1]);
-                $('#view_category').val(data[2]);
-                $('#view_service').val(data[3]);
-                $('#view_description').val(data[4]);
-                $('#view_price').val(data[5]);
-                $('#view_service_date_added').val(data[6]);
-                $('#view_service_last_updated').val(data[7]);
+                $('#v_s_service_id').val(data[0]);
+                $('#v_s_category_id').val(data[1]);
+                $('#v_s_category').val(data[2]);
+                $('#v_s_service').val(data[3]);
+                $('#v_s_description').val(data[4]);
+                $('#v_s_price').val(data[5]);
+                $('#v_s_service_date_added').val(data[6]);
+                $('#v_s_service_last_updated').val(data[7]);
             });
         });
     </script>
@@ -240,12 +240,12 @@
 
                 console.log(data);
 
-                $('#edit_service_id').val(data[0]);
-                $('#edit_category_id').val(data[1]);
-                $('#edit_category').val(data[2]);
-                $('#edit_service').val(data[3]);
-                $('#edit_description').val(data[4]);
-                $('#edit_price').val(data[5]);
+                $('#e_s_service_id').val(data[0]);
+                $('#e_s_category_id').val(data[1]);
+                $('#e_s_category').val(data[2]);
+                $('#e_s_service_name').val(data[3]);
+                $('#e_s_description').val(data[4]);
+                $('#e_s_price').val(data[5]);
             });
         });
     </script>
