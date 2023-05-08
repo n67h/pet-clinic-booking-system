@@ -203,11 +203,21 @@
                                             $birthdate = $row_select['birthdate'];
                                             $gender = $row_select['gender'];
                                             $pet_image = $row_select['pet_image'];
+
+
+                                            if($pet_image == ''){
+                                                echo '<div class="col-md-4">
+                                                <img src="../pet-images/default.png" class="img-fluid rounded-start p-3" alt="...">
+                                                </div>';
+                                            }else{
+                                                echo '<div class="col-md-4">
+                                                <img src="../pet-images/' .$pet_image. '" class="img-fluid rounded-start p-3" alt="...">
+                                                </div>';
+                                            }
                                 ?>
 
-                                            <div class="col-md-4">
-                                                <img src="../pet-images/<?= $pet_image ?>" class="img-fluid rounded-start p-3" alt="...">
-                                            </div>
+
+                                            
                                             <div class="col-md-8">
                                                 <div class="card-body">
                                                     <h5 class="card-title text-dark">Name:  <span class="fs-4 text-dark"><u><?= $pet_name ?></u></span></h5>
