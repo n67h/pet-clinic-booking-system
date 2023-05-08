@@ -258,72 +258,82 @@
                 }
             }
         ?>
-        <!-- start of main container -->
-        <div class="container">
-            <!-- start of card -->
-            <div class="card">
-                <!-- start of card header -->
-                <div class="card-header text-center pt-3 pb-3">
-                    <h2 class="pt-3 pb-3">Login</h2>
-                </div>
-                <!-- end of card header -->
-                <!-- start of card body -->
-                <div class="card-body">
-                    <!-- <h5 class="card-title">Special title treatment</h5> -->
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                    <!-- start of registration form -->
-                    <form action="" method="post">
-                        <!-- start of first row -->
-                        <div class="row mb-1">
-                            <div class="col-sm-3">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label fs-5 ps-2">Username or email<span class="text-danger fs-5"><?= $username_error; ?></span><span class="text-success fs-5"><?= $username_success; ?></span></label>
-                                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username or email" value="<?= $username_value; ?>">
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                            </div>
-                        </div>
-                        <!-- end of first row -->
-                        <!-- start of second row -->
-                        <div class="row mb-1">
-                            <div class="col-sm-3">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <label for="password" class="form-label fs-5 ps-2">Password<span class="text-danger fs-5"><?= $password_error; ?></span><span class="text-success fs-5"><?= $password_success; ?></span></label>
-                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="<?= $password_value; ?>">
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                            </div>
-                        </div>
-                        <!-- end of second row -->
-                        <!-- start of third row -->
-                        <div class="row mb-1">
-                            <div class="col-sm-3">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3 text-center">
-                                    <a href="reset-password.php" class="mt-1">Forgot password?</a>
-                                    <button type="submit" name="login" class="btn btn-primary btn-lg mb-4 mt-4" style="width: 100%;">Log in</button>
-                                    <a href="register.php" class="">New to Veterinary Clinic?</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                            </div>
-                        </div>
-                        <!-- end of third row -->
-                    </form>
-                    <!-- end of registration form -->
-                </div>
-                <!-- end of card body -->
+        <div class="row">
+            <div class="col-md-3">
+
             </div>
-            <!-- end of card -->
+            <div class="col-md-6">
+                <!-- start of main container -->
+                <div class="container">
+                    <!-- start of card -->
+                    <div class="card">
+                        <!-- start of card header -->
+                        <div class="card-header text-center pt-3 pb-3">
+                            <h2 class="pt-3 pb-3">Login</h2>
+                        </div>
+                        <!-- end of card header -->
+                        <!-- start of card body -->
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Special title treatment</h5> -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                            <!-- start of registration form -->
+                            <form action="" method="post">
+                                <!-- start of first row -->
+                                <div class="row mb-1">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label fs-5 ps-2">Username or email<span class="text-danger fs-5"><?= $username_error; ?></span><span class="text-success fs-5"><?= $username_success; ?></span></label>
+                                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username or email" value="<?= $username_value; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                    </div>
+                                </div>
+                                <!-- end of first row -->
+                                <!-- start of second row -->
+                                <div class="row mb-1">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label fs-5 ps-2">Password<span class="text-danger fs-5"><?= $password_error; ?></span><span class="text-success fs-5"><?= $password_success; ?></span></label>
+                                            <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="<?= $password_value; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                    </div>
+                                </div>
+                                <!-- end of second row -->
+                                <!-- start of third row -->
+                                <div class="row mb-1">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-3 text-center">
+                                            <a href="reset-password.php" class="mt-1">Forgot password?</a>
+                                            <button type="submit" name="login" class="btn btn-primary btn-lg mb-4 mt-4" style="width: 100%;">Log in</button>
+                                            <a href="register.php" class="">New to Veterinary Clinic?</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                    </div>
+                                </div>
+                                <!-- end of third row -->
+                            </form>
+                            <!-- end of registration form -->
+                        </div>
+                        <!-- end of card body -->
+                    </div>
+                    <!-- end of card -->
+                </div>
+                <!-- end of main container -->
+            </div>
+            <div class="col-md-3">
+
+            </div>
         </div>
-        <!-- end of main container -->
     <?php
         }else{
             header('location: index.php');
