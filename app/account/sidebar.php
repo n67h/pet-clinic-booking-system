@@ -54,10 +54,13 @@
                                     echo '<li class=""><a href="pet.php" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark bg-info rounded"> My Pets</a></li>';
                                 }
 
-                                if($url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php'){
-                                    echo '<li class=""><a href="appointment.php" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark"> Appointments</a></li>';
+                                if($url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php?status=waiting' &&
+                                $url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php?status=waiting' &&
+                                $url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php?status=completed' &&
+                                $url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php?status=canceled'){
+                                    echo '<li class=""><a href="appointment.php?status=waiting" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark"> Appointments</a></li>';
                                 }else{
-                                    echo '<li class=""><a href="appointment.php" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark bg-info rounded"> Appointments</a></li>';
+                                    echo '<li class=""><a href="appointment.php?status=waiting" class="text-decoration-none ps-3 px-3 py-2 d-block text-dark bg-info rounded"> Appointments</a></li>';
                                 }
 
                                 if($url !== 'localhost/pet-clinic-booking-system/app/account/password.php'){
