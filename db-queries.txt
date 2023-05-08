@@ -123,3 +123,13 @@ SELECT user_info.user_id, user_info.email, user_info.phone_number, user_info.fir
 SELECT category.category_id, category.category, pet.* FROM category INNER JOIN pet USING (category_id) WHERE pet.is_deleted != 1 AND pet.user_id = 1 ORDER BY pet.pet_id DESC;
 
 SELECT category.category_id, category.category, pet.pet_id, pet.category_id, pet.pet_name, pet.birthdate, pet.gender, service.service_id, service.service, appointment.* FROM appointment INNER JOIN pet USING (pet_id) INNER JOIN category USING (category_id) INNER JOIN service USING (service_id) WHERE  appointment.user_id = 5 AND appointment.is_deleted != 1 ORDER BY appointment.appointment_id DESC;
+
+SELECT category.category_id, category.category, pet.pet_id, pet.category_id, pet.pet_name, pet.birthdate, pet.gender, service.service_id, service.service, user_info.user_id, user_info.email, user_info.phone_number, user_info.first_name, user_info.last_name, appointment.* FROM appointment INNER JOIN user_info USING (user_id) INNER JOIN pet USING (pet_id) INNER JOIN category USING (category_id) INNER JOIN service USING (service_id) WHERE appointment.is_deleted != 1 ORDER BY appointment.appointment_id DESC;
+
+SELECT DATE_FORMAT(date, '%Y-%m') AS month, COUNT(*) AS appointment FROM appointment GROUP BY MONTH(date), YEAR(date) ORDER BY month;
+
+SELECT c.category, COUNT(*) as count
+FROM appointment a
+JOIN pet p ON a.pet_id = p.pet_id
+JOIN category c ON p.category_id = c.category_id
+GROUP BY c.category;
