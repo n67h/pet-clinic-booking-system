@@ -184,7 +184,7 @@
                                             </div>
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="pet_id" id="pet_id-<?= $date; ?>" value="">
+                                                    <input type="hidden" class="form-control" name="pet_id" id="pet_id-<?= $date; ?>" value="">
                                                 </div>
                                             </div>
 
