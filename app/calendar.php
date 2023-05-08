@@ -166,14 +166,35 @@
                                             <h4 class="ps-4">Pet details</h4>
                                             <hr class="ms-3" style="width: 96%;">
 
-                                            
+                                            <div class="col-md-6 col-6 mt-3">
+                                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="pet" id="pet-<?= $date; ?>">
+                                                    <option selected disabled>-- Choose an existing pet --</option>
+                                                    <?php
+                                                        $sql_pet = "SELECT * FROM pet WHERE user_id = $user_id_session AND is_deleted != 1 ORDER BY pet_id DESC;";
+                                                        $result_pet = mysqli_query($conn, $sql_pet);
+                                                        if(mysqli_num_rows($result_pet) > 0) {
+                                                            while($row_pet = mysqli_fetch_assoc($result_pet)){
+                                                                $pet_id = $row_pet['pet_id'];
+                                                                $pet_name = $row_pet['pet_name'];
+                                                                echo '<option value="' .$pet_id. '">' .$pet_name. '</option>';
+                                                            }
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 col-6 mt-3">
+                                                <div class="form-group">
+                                                    <input type="hidden" class="form-control" name="pet_id" id="pet_id-<?= $date; ?>" value="">
+                                                </div>
+                                            </div>
+
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
                                                     <label for="pet_name-<?= $date; ?>" class="ps-2 pb-2">Name of pet</label>
                                                     <input type="text" class="form-control" name="pet_name" id="pet_name-<?= $date; ?>" value="" required>
                                                 </div>
                                             </div>
-
+                                            
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
                                                     <label for="category-<?= $date; ?>" class="ps-2 pb-2">Species</label>
@@ -274,12 +295,118 @@
                 <script type="text/javascript">
                     $(document).ready(function(){
 
+                        const petID = document.querySelector(<?= json_encode("#pet_id-$date") ?>);
+                        const petName = document.querySelector(<?= json_encode("#pet_name-$date") ?>);
+                        const petSelection = document.querySelector(<?= json_encode("#pet-$date") ?>);
+                        const birthdate = document.querySelector(<?= json_encode("#birthdate-$date") ?>);
+                        const gender = document.querySelector(<?= json_encode("#gender-$date") ?>);
+
+
                         const categorySelection = document.querySelector(<?= json_encode("#category-$date") ?>);
                         const serviceSelection = document.querySelector(<?= json_encode("#service-$date") ?>);
                         const timeslotSelection = document.querySelector(<?= json_encode("#timeslot-$date") ?>);
 
                         serviceSelection.disabled = true; //remove all options bar first
                         timeslotSelection.disabled = true; //remove all options bar first
+
+                        //pet
+                        $(<?= json_encode("#pet-$date") ?>).change(function(){
+
+                            //pet name
+                            var pet_id = $(this).val();
+                            $.ajax({
+                                url: "includes/load-pet-id.inc.php",
+                                method: "POST",
+                                data: {
+                                    petID: pet_id
+                                },
+                                success:function(data){
+                                    $(<?= json_encode("#pet_id-$date") ?>).val(data);
+                                    $(<?= json_encode("#pet_id-$date") ?>).prop("readonly", true);
+                                }
+                            });
+
+                            //pet name
+                            var pet_id = $(this).val();
+                            $.ajax({
+                                url: "includes/load-pet-name.inc.php",
+                                method: "POST",
+                                data: {
+                                    petID: pet_id
+                                },
+                                success:function(data){
+                                    $(<?= json_encode("#pet_name-$date") ?>).val(data);
+                                    $(<?= json_encode("#pet_name-$date") ?>).prop("readonly", true);
+                                }
+                            });
+
+                            //load category
+                            $.ajax({
+                                url: "includes/load-category.inc.php",
+                                method: "POST",
+                                data: {
+                                    petID: pet_id
+                                },
+                                
+                                success:function(data){
+                                    $(<?= json_encode("#category-$date") ?>).html(data);
+                                    serviceSelection.disabled = false; //remove all options bar first
+                                    categorySelection.disabled = true;
+
+                                    $(<?= json_encode("#category-$date") ?>).html(function(){
+                                        var category_id = $(this).val();
+                                        $.ajax({
+                                            url: "includes/load-service.inc.php",
+                                            method: "POST",
+                                            data: {
+                                                categoryID: category_id
+                                            },
+                                            success:function(data){
+                                                $(<?= json_encode("#service-$date") ?>).html(data);
+                                                serviceSelection.disabled = false; //remove all options bar first
+                                            }
+                                        });
+                                    })
+                                }
+                            });
+
+                            //load birthdate
+                            $.ajax({
+                                url: "includes/load-birthdate.inc.php",
+                                method: "POST",
+                                data: {
+                                    petID: pet_id
+                                },
+                                success:function(data){
+                                    $(<?= json_encode("#birthdate-$date") ?>).val(data);
+                                    $(<?= json_encode("#birthdate-$date") ?>).prop("readonly", true);
+                                }
+                            });
+
+                            //load gender
+                            $.ajax({
+                                url: "includes/load-gender.inc.php",
+                                method: "POST",
+                                data: {
+                                    petID: pet_id
+                                },
+                                success:function(data){
+                                    $(<?= json_encode("#gender-$date") ?>).val(data);
+                                    $(<?= json_encode("#gender-$date") ?>).prop("disabled", true);
+                                }
+                            });
+                        });
+
+                        //pet changed
+                        petSelection.onchange = (e) => {
+                            serviceSelection.disabled = false;
+                            timeslotSelection.disabled = true;
+                            
+                            //clear all options for service and timeslot
+                            $(<?= json_encode("#service-$date") ?>);
+                            $(<?= json_encode("#timeslot-$date") ?>).val('default_time');
+                            timeslotSelection.disabled = true; //remove all options bar first
+                        };
 
                         //category
                         $(<?= json_encode("#category-$date") ?>).change(function(){
