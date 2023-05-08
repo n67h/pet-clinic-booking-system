@@ -24,31 +24,31 @@
         <div class="carousel-inner">
             <!-- start of first image for carousel -->
             <div class="carousel-item active">
-                <img src="../resources/images/dog2.jpg" class="d-block w-100" alt="...">
+                <img src="../resources/images/dog4.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block text-dark">
-                    <h1>Anti-rabies</h1>
-                    <p class="fs-2">Prevent them from acquiring the disease from wildlife, and thereby prevent possible transmission to your family or other people.</p>
-                    <button type="button" class="btn btn-light btn-lg"><a class="nav-link text-dark ps-3" href="calendar.php">BOOK NOW</a></button>
+                    <!-- <h1>Anti-rabies</h1>
+                    <p class="fs-2">Prevent them from acquiring the disease from wildlife, and thereby prevent possible transmission to your family or other people.</p> -->
+                    <button type="button" class="btn btn-dark btn-lg"><a class="nav-link text-white ps-3" href="calendar.php">BOOK NOW</a></button>
                 </div>
             </div>
             <!-- end of first image for carousel -->
             <!-- start of second image for carousel -->
             <div class="carousel-item">
-                <img src="../resources/images/cat1.jpg" class="d-block w-100" alt="...">
+                <img src="../resources/images/veterinary2.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block text-dark">
-                    <h1>test</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate labore, natus quibusdam, rerum modi dicta tempora sint suscipit deserunt amet dolore corporis voluptates eaque facilis, quaerat voluptas commodi. Quo, eum?</p>
-                    <button type="button" class="btn btn-light btn-lg"><a class="nav-link text-dark ps-3" href="calendar.php">BOOK NOW</a></button>
+                    <!-- <h1>test</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate labore, natus quibusdam, rerum modi dicta tempora sint suscipit deserunt amet dolore corporis voluptates eaque facilis, quaerat voluptas commodi. Quo, eum?</p> -->
+                    <button type="button" class="btn btn-dark btn-lg"><a class="nav-link text-white ps-3" href="calendar.php">BOOK NOW</a></button>
                 </div>
             </div>
             <!-- end of second image for carousel -->
             <!-- start of third image for carousel -->
             <div class="carousel-item">
-                <img src="../resources/images/qcitizen_id_back.jpg" class="d-block w-100" alt="...">
+                <img src="../resources/images/dog3.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block text-dark">
-                    <h1>test</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio molestias, ut sed iusto amet iste facere, ad, asperiores earum voluptate blanditiis deleniti repellat ab odit deserunt inventore illo dolores dolorum.</p>
-                    <button type="button" class="btn btn-light btn-lg"><a class="nav-link text-dark ps-3" href="calendar.php">BOOK NOW</a></button>
+                    <!-- <h1>test</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio molestias, ut sed iusto amet iste facere, ad, asperiores earum voluptate blanditiis deleniti repellat ab odit deserunt inventore illo dolores dolorum.</p> -->
+                    <button type="button" class="btn btn-dark btn-lg"><a class="nav-link text-white ps-3" href="calendar.php">BOOK NOW</a></button>
                 </div>
             </div>
             <!-- end of third image for carousel -->
@@ -72,8 +72,8 @@
             <div class="card text-bg-dark guitar">
                 <img src="../resources/images/veterinary1.jpg" class="card-img" alt="random img">
                 <div class="card-img-overlay pt-5 ps-5 mt-5 ms-5">
-                    <h3><a class="nav-link card-title text-dark float-start" href="#">test</a></h3>
-                    <p><a class="nav-link card-title text-dark float-start" href="#">random text</a></p>
+                    <h3><a class="nav-link card-title text-dark float-start" href="#">Trusted Care by Skilled Professionals.</a></h3>
+                    <!-- <p><a class="nav-link card-title text-dark float-start" href="#">random text</a></p> -->
                 </div>
             </div>
         </div>
@@ -81,9 +81,8 @@
         <!-- start of description on right side -->
         <div class="col-sm-6">
             <div class="container text-start">
-                <h2 class="text-start">Experienced Veterinarians</h2>
-                <p class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, cum. Quas cum consectetur aliquid veritatis dignissimos dolorum ducimus asperiores odit dicta corporis voluptate quis et adipisci recusandae, dolores temporibus iusto!</p>
-                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati</p>
+                <h1 class="text-start">Experienced Veterinarians</h1>
+                <p class="fs-3">Experienced veterinarians work with pets of all kinds, from dogs and cats to exotic animals and wildlife. They have a keen eye for detail and can quickly identify the source of an animal's problem, whether it's an infection, disease, or injury. They also perform surgeries and other medical procedures that are necessary for the treatment of animals. Additionally, experienced veterinarians provide pet owners with valuable advice on how to care for their pets, such as proper diet and exercise routines.</p>
             </div>
         </div>
         <!-- end of description on right side -->
@@ -94,19 +93,18 @@
         <!-- start of description on left side -->
         <div class="col-sm-6">
             <div class="container text-end">
-                <h2 class="text-end">Experienced Veterinarians</h2>
-                <p class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, cum. Quas cum consectetur aliquid veritatis dignissimos dolorum ducimus asperiores odit dicta corporis voluptate quis et adipisci recusandae, dolores temporibus iusto!</p>
-                <p class="fs-4">Deserunt distinctio sunt quos consectetur, ea quibusdam assumenda dolorum architecto molestiae id tenetur reprehenderit nisi! Animi dicta asperiores repellendus ipsa, odio placeat obcaecati</p>
+                <h1 class="text-end">Clean Facility</h1>
+                <p class="fs-3">Our top priority is to provide a clean and safe environment for all pets that visit our facility. We understand the importance of maintaining a sanitary and hygienic space, especially in a setting where many animals are in close proximity to each other. Our facility is equipped with state-of-the-art cleaning equipment and staffed with trained professionals who take pride in ensuring that our space is always clean and welcoming.</p>
             </div>
         </div>
         <!-- end of description on left side -->
         <!-- start of image on right side -->
         <div class="col-sm-6">
             <div class="card text-bg-dark guitar">
-                <img src="../resources/images/veterinary1.jpg" class="card-img" alt="random img">
+                <img src="../resources/images/facility.jpg" class="card-img" alt="random img">
                 <div class="card-img-overlay pt-5 ps-5 mt-5 ms-5">
-                    <h3><a class="nav-link card-title text-dark float-start" href="#">test</a></h3>
-                    <p><a class="nav-link card-title text-dark float-start" href="#">random text</a></p>
+                    <h3><a class="nav-link card-title text-dark float-start" href="#">Spotless and Sanitized Pet Haven.</a></h3>
+                    <!-- <p><a class="nav-link card-title text-dark float-start" href="#">Spotless and Sanitized Pet Haven.</a></p> -->
                 </div>
             </div>
         </div>
@@ -114,41 +112,6 @@
     </div>
     <!-- end of second row -->
     <!-- end of description -->
-    <br><br>
-    <!-- start of cards -->
-    <div class="container-md me-auto mb-auto pe-auto pb-5 pt-5" id="services">
-        <!-- start of cards inner container -->
-        <div class="container text-center">
-            <!-- start of cards div row -->
-            <div class="row">
-                <?php
-                    $sql = "SELECT * FROM service WHERE is_deleted != 1 ORDER BY service_id DESC;";
-                    $result = mysqli_query($conn, $sql);
-                    if(mysqli_num_rows($result) > 0){
-                        while($row = mysqli_fetch_assoc($result)){
-                            $service = $row['service'];
-                            $description = $row['description'];
-                ?>
-                            <!-- display all cards -->
-                            <div class="col-sm-4 mb-4">
-                                <div class="card services">
-                                    <div class="card-body">
-                                        <h1 class="card-title"><i class="fa-solid fa-syringe"></i></h1>
-                                        <p class="card-text fw-bold"><?= $service; ?></p>
-                                        <p class="card-text fs-6"><?= $description; ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                <?php
-                        }
-                    }
-                ?>
-            </div>
-            <!-- end of cards div row -->
-        </div>  
-        <!-- end of cards inner container -->
-    </div> 
-    <!-- end of cards -->
     <br><br>
     <div class="container">
         <!-- <h1 class="text-center" id="test">test</h1> -->
