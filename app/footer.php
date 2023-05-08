@@ -7,7 +7,7 @@
                 <!-- start of short about -->
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Veterinary Clinic</h5>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil et odit nostrum numquam quidem aliquid molestias repudiandae hic sunt aliquam excepturi, qui vero, minus inventore aut deserunt reprehenderit doloribus maxime.</p>
+                    <p>Our veterinary clinic is dedicated to providing exceptional care and treatment for all pets. Our team of highly skilled veterinarians and staff are passionate about ensuring the health and well-being of your furry family members. We strive to create a comfortable and welcoming environment for both you and your pet, and we take pride in offering personalized care to meet the unique needs of each patient.</p>
                 </div>
                 <!-- end of short about -->
 
@@ -79,7 +79,7 @@
                 <!-- start of copyright stuff -->
                 <div class="col-md-7 col-lg-8">
                     <p>
-                        Copyright © 2022. All rights reserved by:
+                        Copyright © <?php echo date("Y"); ?>. All rights reserved by:
                         <a href="#" class="text-decoration-none">
                             <strong class="text-warning link-info">Sta. Clara, Andre Paul N.</strong>
                         </a>
