@@ -12,7 +12,7 @@
         require_once 'sidebar.php';
     ?>
     <!-- start of first container -->
-    <div class="container ms-5">
+    <div class="container ms-5 mb-5">
         <h3 class="text-dark mt-3 text-center">Appointments</h3>
         <!-- start of container fluid -->
         <div class="container-fluid mt-3">
