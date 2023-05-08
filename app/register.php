@@ -225,108 +225,116 @@
                 }
             }
     ?>
-            <!-- start of main container -->
-            <div class="container">
-                <!-- start of card -->
-                <div class="card">
-                    <!-- start of card header -->
-                    <div class="card-header text-center pt-3 pb-3">
-                        <h2 class="pt-3 pb-3">Registration form</h2>
-                    </div>
-                    <!-- end of card header -->
-                    <!-- start of card body -->
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Special title treatment</h5> -->
-                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        <!-- start of registration form -->
-                        <form action="" method="post">
-                            <!-- start of first row -->
-                            <div class="row mb-1">
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="first_name" class="form-label fs-5 ps-2">First Name<span class="text-danger fs-5"><?= $first_name_error; ?></span><span class="text-success fs-5"><?= $first_name_success; ?></span></label>
-                                        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="John" value="<?= $first_name_value; ?>">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="last_name" class="form-label fs-5 ps-2">Last Name<span class="text-danger fs-5"><?= $last_name_error; ?></span><span class="text-success fs-5"><?= $last_name_success; ?></span></label>
-                                        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Doe" value="<?= $last_name_value; ?>">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of first row -->
-                            <!-- start of second row -->
-                            <div class="row mb-1">
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="username" class="form-label fs-5 ps-2">Username<span class="text-danger fs-5"><?= $username_error; ?></span><span class="text-success fs-5"><?= $username_success; ?></span></label>
-                                        <input type="text" name="username" class="form-control" id="username" placeholder="johndoe123" value="<?= $username_value; ?>">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="email" class="form-label fs-5 ps-2">Email<span class="text-danger fs-5"><?= $email_error; ?></span><span class="text-success fs-5"><?= $email_success; ?></span></label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="email" class="form-control" id="email" placeholder="johndoe123@gmail.com" aria-label="johndoe123@gmail.com" aria-describedby="basic-addon2" value="<?= $email_value; ?>">
-                                        <span class="input-group-text" id="basic-addon2">@gmail.com</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of second row -->
-                            <!-- start of third row -->
-                            <div class="row mb-1">
-                                <div class="col-sm-12">
-                                    <div class="mb-3">
-                                        <label for="phone_number" class="form-label fs-5 ps-2">Contact Number<span class="text-danger fs-5"><?= $phone_number_error; ?></span><span class="text-success fs-5"><?= $phone_number_success; ?></span></label>
-                                        <input type="number" name="phone_number" class="form-control" id="phone_number" placeholder="09123456789" value="<?= $phone_number_value; ?>">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of third row -->
-                            <!-- start of fourth row -->
-                            <div class="row mb-1">
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="password" class="form-label fs-5 ps-2">Password<span class="text-danger fs-5"><?= $password_error; ?></span><span class="text-success fs-5"><?= $password_success; ?></span></label>
-                                        <input type="password" name="password" class="form-control" id="password" placeholder="" value="<?= $password_value; ?>">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="mb-3">
-                                        <label for="repeat_password" class="form-label fs-5 ps-2">Repeat Password<span class="text-danger fs-5"><?= $repeat_password_error; ?></span><span class="text-success fs-5"><?= $repeat_password_success; ?></span></label>
-                                        <input type="password" name="repeat_password" class="form-control" id="repeat_password" placeholder="" value="<?= $repeat_password_value; ?>">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of fourth row -->
-                            <!-- start of fifth row -->
-                            <div class="row mb-1">
-                                <div class="col-sm-12">
-                                    <div class="form-check fs-5">
-                                        <input name="terms" class="form-check-input" type="checkbox" value="" id="terms" <?php if(isset($_POST['terms'])) { echo 'checked'; } ?>>
-                                        <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a> as set out by the user agreement.<span class="text-danger fs-5"><?= $terms_error; ?></span><span class="text-success fs-5"><?= $terms_success; ?></span></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of fifth row -->
-                            <!-- start of sixth row -->
-                            <div class="row mb-1">
-                                <div class="col-sm-12">
-                                    <div class="mb-3 mt-3 text-center">
-                                        <button type="submit" name="register" class="btn btn-primary btn-lg mb-4" style="width: 100%;">Register</button>
-                                        <a href="login.php" class="">Already have an account?</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of sixth row -->
-                        </form>
-                        <!-- end of registration form -->
-                    </div>
-                    <!-- end of card body -->
+            <div class="row">
+                <div class="col-md-3">
                 </div>
-                <!-- end of card -->
+                <div class="col-md-6">
+                    <!-- start of main container -->
+                    <div class="container">
+                        <!-- start of card -->
+                        <div class="card">
+                            <!-- start of card header -->
+                            <div class="card-header text-center pt-3 pb-3">
+                                <h2 class="pt-3 pb-3">Registration form</h2>
+                            </div>
+                            <!-- end of card header -->
+                            <!-- start of card body -->
+                            <div class="card-body">
+                                <!-- <h5 class="card-title">Special title treatment</h5> -->
+                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                <!-- start of registration form -->
+                                <form action="" method="post">
+                                    <!-- start of first row -->
+                                    <div class="row mb-1">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="first_name" class="form-label fs-5 ps-2">First Name<span class="text-danger fs-5"><?= $first_name_error; ?></span><span class="text-success fs-5"><?= $first_name_success; ?></span></label>
+                                                <input type="text" name="first_name" class="form-control" id="first_name" placeholder="John" value="<?= $first_name_value; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="last_name" class="form-label fs-5 ps-2">Last Name<span class="text-danger fs-5"><?= $last_name_error; ?></span><span class="text-success fs-5"><?= $last_name_success; ?></span></label>
+                                                <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Doe" value="<?= $last_name_value; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of first row -->
+                                    <!-- start of second row -->
+                                    <div class="row mb-1">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label fs-5 ps-2">Username<span class="text-danger fs-5"><?= $username_error; ?></span><span class="text-success fs-5"><?= $username_success; ?></span></label>
+                                                <input type="text" name="username" class="form-control" id="username" placeholder="johndoe123" value="<?= $username_value; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="email" class="form-label fs-5 ps-2">Email<span class="text-danger fs-5"><?= $email_error; ?></span><span class="text-success fs-5"><?= $email_success; ?></span></label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" name="email" class="form-control" id="email" placeholder="johndoe123@gmail.com" aria-label="johndoe123@gmail.com" aria-describedby="basic-addon2" value="<?= $email_value; ?>">
+                                                <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of second row -->
+                                    <!-- start of third row -->
+                                    <div class="row mb-1">
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="phone_number" class="form-label fs-5 ps-2">Contact Number<span class="text-danger fs-5"><?= $phone_number_error; ?></span><span class="text-success fs-5"><?= $phone_number_success; ?></span></label>
+                                                <input type="number" name="phone_number" class="form-control" id="phone_number" placeholder="09123456789" value="<?= $phone_number_value; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of third row -->
+                                    <!-- start of fourth row -->
+                                    <div class="row mb-1">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label fs-5 ps-2">Password<span class="text-danger fs-5"><?= $password_error; ?></span><span class="text-success fs-5"><?= $password_success; ?></span></label>
+                                                <input type="password" name="password" class="form-control" id="password" placeholder="" value="<?= $password_value; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="repeat_password" class="form-label fs-5 ps-2">Repeat Password<span class="text-danger fs-5"><?= $repeat_password_error; ?></span><span class="text-success fs-5"><?= $repeat_password_success; ?></span></label>
+                                                <input type="password" name="repeat_password" class="form-control" id="repeat_password" placeholder="" value="<?= $repeat_password_value; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of fourth row -->
+                                    <!-- start of fifth row -->
+                                    <div class="row mb-1">
+                                        <div class="col-sm-12">
+                                            <div class="form-check fs-5">
+                                                <input name="terms" class="form-check-input" type="checkbox" value="" id="terms" <?php if(isset($_POST['terms'])) { echo 'checked'; } ?>>
+                                                <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a> as set out by the user agreement.<span class="text-danger fs-5"><?= $terms_error; ?></span><span class="text-success fs-5"><?= $terms_success; ?></span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of fifth row -->
+                                    <!-- start of sixth row -->
+                                    <div class="row mb-1">
+                                        <div class="col-sm-12">
+                                            <div class="mb-3 mt-3 text-center">
+                                                <button type="submit" name="register" class="btn btn-primary btn-lg mb-4" style="width: 100%;">Register</button>
+                                                <a href="login.php" class="">Already have an account?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of sixth row -->
+                                </form>
+                                <!-- end of registration form -->
+                            </div>
+                            <!-- end of card body -->
+                        </div>
+                        <!-- end of card -->
+                    </div>
+                    <!-- end of main container -->
+                </div>
+                <div class="col-md-3">
+                </div>
             </div>
-            <!-- end of main container -->
     <?php
         }else{
             header('location: index.php');
