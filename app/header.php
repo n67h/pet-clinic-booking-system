@@ -69,9 +69,9 @@
                             }
                             if($url !== 'localhost/pet-clinic-bookng-system/app/service.php'){
                                 if($path !== 'account'){
-                                    echo '<li class="nav-item"><a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="service.php">Services</a></li>';
+                                    echo '<li class="nav-item"><a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="service.php?category_id=1">Services</a></li>';
                                 }else{
-                                    echo '<li class="nav-item"><a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="../service.php">Services</a></li>';
+                                    echo '<li class="nav-item"><a class="nav-link dropdown-item text-white link-info fs-5 text-center" href="../service.php?category_id=1">Services</a></li>';
                                 }
                             }
                         ?>
