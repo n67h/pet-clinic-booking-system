@@ -184,7 +184,7 @@
                                             </div>
                                             <div class="col-md-6 col-6 mt-3">
                                                 <div class="form-group">
-                                                    <input type="hidden" class="form-control" name="pet_id" id="pet_id-<?= $date; ?>" value="">
+                                                    <input type="text" class="form-control" name="pet_id" id="pet_id-<?= $date; ?>" value="">
                                                 </div>
                                             </div>
 
@@ -351,7 +351,9 @@
                                 success:function(data){
                                     $(<?= json_encode("#category-$date") ?>).html(data);
                                     serviceSelection.disabled = false; //remove all options bar first
-                                    categorySelection.disabled = true;
+                                    // categorySelection.disabled = true;
+                                    $(<?= json_encode("#category-$date") ?>).css("pointer-events", "none");
+                                    $(<?= json_encode("#category-$date") ?>).css("background-color", "#E6E6E6");
 
                                     $(<?= json_encode("#category-$date") ?>).html(function(){
                                         var category_id = $(this).val();
@@ -392,7 +394,9 @@
                                 },
                                 success:function(data){
                                     $(<?= json_encode("#gender-$date") ?>).val(data);
-                                    $(<?= json_encode("#gender-$date") ?>).prop("disabled", true);
+                                    $(<?= json_encode("#gender-$date") ?>).css("pointer-events", "none");
+                                    $(<?= json_encode("#gender-$date") ?>).css("background-color", "#E6E6E6");
+
                                 }
                             });
                         });
@@ -470,6 +474,7 @@
         }
         if(isset($_POST['book'])){
             // $user_id_session
+            $pet_id = mysqli_real_escape_string($conn, $_POST['pet_id']);
             $pet_name = mysqli_real_escape_string($conn, $_POST['pet_name']);
             $category = mysqli_real_escape_string($conn, $_POST['category']);
             $birthdate = mysqli_real_escape_string($conn, $_POST['birthdate']);
@@ -479,14 +484,28 @@
             $timeslot = mysqli_real_escape_string($conn, $_POST['timeslot']);
             
             
+            
             if(empty($pet_name) || empty($category) || empty($birthdate) || empty($gender) || empty($service) || empty($date) || empty($timeslot)){
                 $error_message = "All fields are required!";
                 echo "<script type='text/javascript'>alert('$error_message');</script>";
             }else{
-                $sql = "INSERT INTO appointment (user_id, pet_name, category_id, birthdate, gender, service_id, date, timeslot) VALUES ($user_id_session, '$pet_name', '$category', '$birthdate', '$gender', '$service', '$date', '$timeslot');";
+                if(empty($pet_id)){
+                    $sql = "INSERT INTO pet (user_id, category_id, pet_name, birthdate, gender, pet_image) VALUES ($user_id_session, $category, '$pet_name', '$birthdate', '$gender', '');";
+                    if(mysqli_query($conn, $sql)){
+                        $latest_pet_id = mysqli_insert_id($conn);
 
-                if(mysqli_query($conn, $sql)){
-                    header('location: calendar.php?bookingsuccess');
+                        $sql = "INSERT INTO appointment (user_id, pet_id, service_id, date, timeslot) VALUES ($user_id_session, $latest_pet_id, $service, '$date', '$timeslot');";
+        
+                        if(mysqli_query($conn, $sql)){
+                            header('location: calendar.php?bookingsuccess');
+                        }
+                    }
+                }else{
+                    $sql = "INSERT INTO appointment (user_id, pet_id, service_id, date, timeslot) VALUES ($user_id_session, $pet_id, $service, '$date', '$timeslot');";
+        
+                    if(mysqli_query($conn, $sql)){
+                        header('location: calendar.php?bookingsuccess');
+                    }
                 }
             }
         }
