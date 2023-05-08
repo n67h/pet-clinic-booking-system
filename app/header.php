@@ -1,3 +1,5 @@
+    <!-- favicon -->
+    <link rel="icon" href="../resources/images/favicon.ico" type="image/x-icon">
     <!-- google font / lobster -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

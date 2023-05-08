@@ -1,6 +1,8 @@
 <?php
     require_once 'includes/session.inc.php';
 ?>
+    <!-- favicon -->
+    <link rel="icon" href="../../resources/images/favicon.ico" type="image/x-icon">
     <!-- jquery datatable css cdn -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
     <!-- font-awesome cdn -->
