@@ -297,7 +297,7 @@
         <!-- end of view modal -->
 
         <!-- start of delete appointment modal -->
-        <div class="modal fade" id="delete_uappointment_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cancel_uappointment_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark text-white">
