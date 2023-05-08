@@ -142,4 +142,52 @@
                 "ordering": true,
             });
         } );
+
+        // start of script for view appointment modal 
+        $(document).ready(function () {
+            // $('body').on('click', '.edit', function(event) {
+            $('body').on('click', '.view', function(event) {
+
+                $('#view_uppointment_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                
+                $('#ua_appointment_id').val(data[7])
+                $('#ua_category').val(data[1]);
+                $('#ua_pet_name').val(data[3]);
+                $('#ua_birthdate').val(data[4]);
+                $('#ua_gender').val(data[5]);
+                $('#ua_service').val(data[8]);
+                $('#ua_date').val(data[9]);
+                $('#ua_timeslot').val(data[10]);
+            });
+        });
+        // end of script for view appointment modal
+
+        // start of script for delete appointment modal
+        $(document).ready(function () {
+
+            $('body').on('click', '.delete', function(event) {
+
+                $('#delete_uappointment_modal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#delete_ua_appointment_id').val(data[7]);
+
+            });
+        });
+        // end of script for delete appointment modal
     </script>
