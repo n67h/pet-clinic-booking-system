@@ -129,3 +129,17 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <!-- jquery datatable js cdn -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+       $(document).ready( function () {
+            $('#datatable-appointment').DataTable({
+                "responsive": false, 
+                "lengthChange": true, 
+                "autoWidth": false,
+                "searching": true,
+                "paging": true,
+                "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+                "iDisplayLength": 10,
+                "ordering": true,
+            });
+        } );
+    </script>
