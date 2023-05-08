@@ -52,7 +52,7 @@
                                 <!-- start of table body -->
                                 <tbody>
                                 <?php
-                                    $sql_select = "SELECT user_info.user_id, user_info.email, user_info.phone_number, user_info.first_name, user_info.last_name, category.category_id, category.category, appointment.appointment_id, appointment.pet_name, appointment.category_id, appointment.birthdate, appointment.gender, appointment.service_id, appointment.date, appointment.timeslot, appointment.status, appointment.date_added, appointment.last_updated, service.service_id, service.service FROM category INNER JOIN appointment USING (category_id) INNER JOIN service USING (service_id) INNER JOIN user_info USING (user_id) WHERE appointment.is_deleted != 1 ORDER BY appointment.appointment_id DESC";
+                                    $sql_select = "SELECT category.category_id, category.category, pet.pet_id, pet.category_id, pet.pet_name, pet.birthdate, pet.gender, service.service_id, service.service, user_info.user_id, user_info.email, user_info.phone_number, user_info.first_name, user_info.last_name, appointment.* FROM appointment INNER JOIN user_info USING (user_id) INNER JOIN pet USING (pet_id) INNER JOIN category USING (category_id) INNER JOIN service USING (service_id) WHERE appointment.is_deleted != 1 ORDER BY appointment.appointment_id DESC;";
                                     $result_select = mysqli_query($conn, $sql_select);
                                     if(mysqli_num_rows($result_select) > 0){
                                         while($row_select = mysqli_fetch_assoc($result_select)){
@@ -317,7 +317,7 @@
                                     <div class="card-body">
                                         <!-- start of edit modal row -->
                                         <div class="row">
-                                            <h4 class="ps-4 mt-5">Appointment details</h4>
+                                            <h4 class="ps-4 mt-1">Appointment details</h4>
                                             <hr class="ms-3" style="width: 96%;">
 
                                             <div class="col-md-6 col-6 mt-3">
