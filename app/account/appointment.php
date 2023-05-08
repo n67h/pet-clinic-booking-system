@@ -33,7 +33,7 @@
     <!-- start of main content -->
     <div class="col-md-9 bg-white">
         <h5 class="text-dark pt-3 ps-2">My Appointments</h5>
-        <p class="text-dark ps-2">Manage your appointments. <?= $status ?></p>
+        <p class="text-dark ps-2">Manage your appointments.</p>
         <div class="text-dark">
             <hr class="mx-2">
         </div>
