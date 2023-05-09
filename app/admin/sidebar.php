@@ -136,8 +136,8 @@
                                     ?>
                                 </a>
                                 <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item bg-dark text-white admin-dropdown" href="profile.php">Profile</a></li>
-                                    <li><a class="dropdown-item bg-dark text-white admin-dropdown" href="change-password.php">Change Password</a></li>
+                                    <!-- <li><a class="dropdown-item bg-dark text-white admin-dropdown" href="profile.php">Profile</a></li> -->
+                                    <!-- <li><a class="dropdown-item bg-dark text-white admin-dropdown" href="change-password.php">Change Password</a></li> -->
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item bg-dark text-white admin-dropdown" href="includes/logout.inc.php">Log out</a></li>
                                 </ul>
