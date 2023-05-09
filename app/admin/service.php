@@ -67,7 +67,7 @@
                                                             <select class="form-select" aria-label="Default select example" name="add_service_category" id="add_service_category" required>
                                                                 <option selected disabled>-- Select category --</option>
                                                                 <?php
-                                                                    $sql_category = "SELECT * FROM category;";
+                                                                    $sql_category = "SELECT * FROM category WHERE is_deleted != 1;";
                                                                     $result_category = mysqli_query($conn, $sql_category);
                                                                     if(mysqli_num_rows($result_category) > 0){
                                                                         while($row_category = mysqli_fetch_assoc($result_category)){
