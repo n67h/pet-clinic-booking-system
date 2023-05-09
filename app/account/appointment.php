@@ -144,7 +144,7 @@
                                                             
                                                             <?php
                                                                 if($url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php?status=completed' && $url !== 'localhost/pet-clinic-booking-system/app/account/appointment.php?status=canceled'){
-                                                                    echo '<a class="btn btn-sm btn-danger delete" href="#" data-bs-toggle="modal" data-bs-target="#delete_uappointment_modal"><i class="fa-solid fa-ban"></i></a>';
+                                                                    echo '<a class="btn btn-sm btn-danger delete" href="#" data-bs-toggle="modal" data-bs-target="#cancel_uappointment_modal"><i class="fa-solid fa-ban"></i></a>';
                                                                 }else{
                                                                     echo '';
                                                                 }
@@ -305,7 +305,7 @@
                         <button type="button" class="btn btn-danger close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span></button>
                     </div>
                     <!-- start of delete modal form -->
-                    <form action="includes/delete-appointment.inc.php" method="post">
+                    <form action="includes/cancel-appointment.inc.php" method="post">
                         <!-- start of delete modal body -->                
                         <div class="modal-body">
                             <!-- start of delete modal row -->
