@@ -21,7 +21,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                                 $service = $row['service'];
                                 echo '<p>
-                                <a href="index.php#services?category_id=1" class="text-white text-decoration-none link-info">' .$service. '</a>
+                                <a href="service.php?category_id=1" class="text-white text-decoration-none link-info">' .$service. '</a>
                                 </p>';
                             }
                         }
