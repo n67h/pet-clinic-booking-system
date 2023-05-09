@@ -14,7 +14,19 @@
                 <!-- start of products -->
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Services</h5>
-                    <p>
+                    <?php
+                        $sql = "SELECT * FROM service WHERE is_deleted != 1 ORDER BY service_id DESC LIMIT 3;";
+                        $result = mysqli_query($conn, $sql);
+                        if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                $service = $row['service'];
+                                echo '<p>
+                                <a href="index.php#services?category_id=1" class="text-white text-decoration-none link-info">' .$service. '</a>
+                                </p>';
+                            }
+                        }
+                    ?>
+                    <!-- <p>
                         <a href="index.php#services" class="text-white text-decoration-none link-info">Vaccination</a>
                     </p>
                     <p>
@@ -23,7 +35,7 @@
                     
                     <p>
                         <a href="index.php#services" class="text-white text-decoration-none link-info">Grooming</a>
-                    </p>
+                    </p> -->
                    
                 </div>
                 <!-- end of products -->
